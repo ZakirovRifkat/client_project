@@ -33,7 +33,17 @@ export class SideBarComponent implements OnInit {
       password:'0000'
     },
   ];
-  checkPassword:boolean = true;
+  goodPassword:boolean = true;
+
+  checkPassword(enteredPassword:string):void{
+    if(enteredPassword === this.users[0].password)
+    {
+      this.goodPassword = false;
+    }
+    else{
+      alert('Неверный пароль');
+    }
+  }
   ngOnInit(): void {
 
   }

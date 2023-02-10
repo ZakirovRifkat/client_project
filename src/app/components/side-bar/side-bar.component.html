@@ -1,4 +1,4 @@
-<app-password-form *ngIf="checkPassword"></app-password-form>
+<app-password-form *ngIf="goodPassword" (checkPasswordEvent)="checkPassword($event);"></app-password-form>
 
 <div class="side-bar">
   <div class="circle" *ngFor="let user of users">
