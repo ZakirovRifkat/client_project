@@ -8,7 +8,7 @@
   box-sizing: border-box;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   padding: 0 20px 0 25px;
-  position: fixed;
+  /* position: fixed; */
 }
 .header__name {
   font-family: "Inter", sans-serif;
