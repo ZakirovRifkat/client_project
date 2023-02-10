@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-password-form',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./password-form.component.css']
 })
 export class PasswordFormComponent {
-
+  @Input() userPassword!:string; 
+  enteredPassword!:string; 
 }
