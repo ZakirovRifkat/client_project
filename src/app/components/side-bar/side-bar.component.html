@@ -1,8 +1,14 @@
-<app-password-form *ngIf="goodPassword" (checkPasswordEvent)="checkPassword($event);"></app-password-form>
-
 <div class="side-bar">
-  <div class="circle" *ngFor="let user of users">
-    {{ user.name | slice : 0 : 1 | uppercase
-    }}{{ user.surname | slice : 0 : 1 | uppercase }}
-  </div>
+  <a
+    class="side-bar__link"
+    *ngFor="let user of users"
+    [routerLink]="['/info', user.id]"
+    [queryParams]="{ password: user.password }"
+    routerLinkActive="side-bar__link-active"
+  >
+    <div class="side-bar__user-link">
+      {{ user.name | slice : 0 : 1 | uppercase
+      }}{{ user.surname | slice : 0 : 1 | uppercase }}
+    </div>
+  </a>
 </div>

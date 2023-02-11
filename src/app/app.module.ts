@@ -10,6 +10,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserInformationComponent } from './components/user-information/user-information.component';
 import { PasswordFormComponent } from './components/password-form/password-form.component';
+import { StartPageComponent } from './components/start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PasswordFormComponent } from './components/password-form/password-form.
     HeaderComponent,
     UserInformationComponent,
     PasswordFormComponent,
+    StartPageComponent,
   ],
   imports: [
     BrowserModule,

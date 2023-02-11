@@ -11,7 +11,6 @@ export class PasswordFormComponent {
   enteredPassword!: string;
 
   checkPassword(): void {
-    console.log(this.enteredPassword);
-    this.checkPasswordEvent.emit(this.enteredPassword); 
-   }
+    this.checkPasswordEvent.emit(this.enteredPassword);
+  }
 }

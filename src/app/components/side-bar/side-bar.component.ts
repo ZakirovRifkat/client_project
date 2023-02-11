@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUser } from 'src/app/models/user';
 
 @Component({
@@ -7,6 +8,7 @@ import { IUser } from 'src/app/models/user';
   styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent implements OnInit {
+  constructor(private router: Router){}
   users: IUser[] = [
     {
       id: 1,
@@ -14,7 +16,7 @@ export class SideBarComponent implements OnInit {
       surname: 'Eladovsci',
       jobTitle: 'eblan1',
       userImg: '',
-      password:'0000'
+      password: '0000',
     },
     {
       id: 2,
@@ -22,7 +24,7 @@ export class SideBarComponent implements OnInit {
       surname: 'ppladovsci',
       jobTitle: 'eblan2',
       userImg: '',
-      password:'0000'
+      password: '1111',
     },
     {
       id: 3,
@@ -30,21 +32,9 @@ export class SideBarComponent implements OnInit {
       surname: 'technic',
       jobTitle: 'eblan3',
       userImg: '',
-      password:'0000'
+      password: '2222',
     },
   ];
-  goodPassword:boolean = true;
-
-  checkPassword(enteredPassword:string):void{
-    if(enteredPassword === this.users[0].password)
-    {
-      this.goodPassword = false;
-    }
-    else{
-      alert('Неверный пароль');
-    }
-  }
-  ngOnInit(): void {
-
-  }
+  
+  ngOnInit(): void {}
 }
