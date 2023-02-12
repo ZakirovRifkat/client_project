@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserInformationComponent } from './components/user-information/user-information.component';
 import { PasswordFormComponent } from './components/password-form/password-form.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
+import { DutyTableComponent } from './components/duty-table/duty-table.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { StartPageComponent } from './components/start-page/start-page.component
     UserInformationComponent,
     PasswordFormComponent,
     StartPageComponent,
+    DutyTableComponent,
   ],
   imports: [
     BrowserModule,

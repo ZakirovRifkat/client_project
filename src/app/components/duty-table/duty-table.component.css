@@ -1,0 +1,28 @@
+.table {
+  width: 100%;
+  border: none;
+  margin-bottom: 20px;
+  border-spacing: 0;
+  color: aliceblue;
+  font-weight: 700;
+}
+.table thead th {
+  font-weight: bold;
+  text-align: left;
+  border: none;
+  padding: 10px 15px;
+  /* background: #d8d8d8; */
+  font-size: 14px;
+  border-bottom: 2px solid rgba(246, 251, 253, 0.06);
+}
+
+.table tbody td {
+  text-align: left;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.table tbody tr:nth-child(even) {
+  background: rgba(246, 251, 253, 0.06);
+}
