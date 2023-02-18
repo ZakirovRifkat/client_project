@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/models/user';
 
@@ -7,8 +7,8 @@ import { IUser } from 'src/app/models/user';
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css'],
 })
-export class SideBarComponent implements OnInit {
-  constructor(private router: Router){}
+export class SideBarComponent implements OnInit, DoCheck {
+  constructor(private router: Router) {}
   users: IUser[] = [
     {
       id: 1,
@@ -35,6 +35,11 @@ export class SideBarComponent implements OnInit {
       password: '2222',
     },
   ];
-  
+
   ngOnInit(): void {}
+  ngDoCheck(): void {}
+
+  getRandomColor(): number {
+    return Math.random() * 255;
+  }
 }

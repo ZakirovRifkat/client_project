@@ -6,7 +6,9 @@
     [queryParams]="{ password: user.password }"
     routerLinkActive="side-bar__link-active"
   >
-    <div class="side-bar__user-link">
+    <div class="gradient"></div>
+    <img class="img" [src]="user.userImg" *ngIf="user.userImg" />
+    <div class="side-bar__user-link" [style.background-color] = "'rgb(230,80,30)'">
       {{ user.name | slice : 0 : 1 | uppercase
       }}{{ user.surname | slice : 0 : 1 | uppercase }}
     </div>

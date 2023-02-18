@@ -11,8 +11,6 @@
 }
 
 .header__name {
-  font-family: "Inter", sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 18px;
   display: flex;
@@ -28,4 +26,12 @@
 .header__icon {
   width: 32px;
   height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__icon img{
+   height: 55%;
+  width: 55%; 
 }
