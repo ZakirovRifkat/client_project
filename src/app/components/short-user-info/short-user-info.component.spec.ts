@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DutyTableComponent } from './duty-table.component';
+import { ShortUserInfoComponent } from './short-user-info.component';
 
-describe('DutyTableComponent', () => {
-  let component: DutyTableComponent;
-  let fixture: ComponentFixture<DutyTableComponent>;
+describe('ShortUserInfoComponent', () => {
+  let component: ShortUserInfoComponent;
+  let fixture: ComponentFixture<ShortUserInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DutyTableComponent],
+      declarations: [ShortUserInfoComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DutyTableComponent);
+    fixture = TestBed.createComponent(ShortUserInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

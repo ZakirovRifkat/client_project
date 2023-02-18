@@ -12,6 +12,11 @@ import { UserInformationComponent } from './components/user-information/user-inf
 import { PasswordFormComponent } from './components/password-form/password-form.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
 import { DutyTableComponent } from './components/duty-table/duty-table.component';
+import { ShortUserInfoComponent } from './components/short-user-info/short-user-info.component';
+import { MainUserInfoComponent } from './components/main-user-info/main-user-info.component';
+import { TaskStatsComponent } from './widgets/task-stats/task-stats.component';
+import { NotificationStatsComponent } from './widgets/notification-stats/notification-stats.component';
+import { EfficiencyStatsComponent } from './widgets/efficiency-stats/efficiency-stats.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,11 @@ import { DutyTableComponent } from './components/duty-table/duty-table.component
     PasswordFormComponent,
     StartPageComponent,
     DutyTableComponent,
+    ShortUserInfoComponent,
+    MainUserInfoComponent,
+    TaskStatsComponent,
+    NotificationStatsComponent,
+    EfficiencyStatsComponent,
   ],
   imports: [
     BrowserModule,

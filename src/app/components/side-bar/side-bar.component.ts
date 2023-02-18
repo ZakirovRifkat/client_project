@@ -37,7 +37,9 @@ export class SideBarComponent implements OnInit, DoCheck {
   ];
 
   ngOnInit(): void {}
-  ngDoCheck(): void {}
+  ngDoCheck(): void {
+    console.log(5);
+  }
 
   getRandomColor(): number {
     return Math.random() * 255;

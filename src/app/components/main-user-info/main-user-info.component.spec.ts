@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DutyTableComponent } from './duty-table.component';
+import { MainUserInfoComponent } from './main-user-info.component';
 
-describe('DutyTableComponent', () => {
-  let component: DutyTableComponent;
-  let fixture: ComponentFixture<DutyTableComponent>;
+describe('MainUserInfoComponent', () => {
+  let component: MainUserInfoComponent;
+  let fixture: ComponentFixture<MainUserInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DutyTableComponent],
+      declarations: [MainUserInfoComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DutyTableComponent);
+    fixture = TestBed.createComponent(MainUserInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
