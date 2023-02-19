@@ -27,5 +27,13 @@
     <button>вчера</button>
     <button>календарь</button>
   </div>
-  <div></div>
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+    <app-task-stats *ngIf="taskStatsActive"></app-task-stats>
+    <app-notification-stats
+      *ngIf="notificationStatsActive"
+    ></app-notification-stats>
+    <app-efficiency-stats *ngIf="efficiencyStatsActive"></app-efficiency-stats>
+    <app-add-metrics></app-add-metrics>
+  </div>
 </div>
+

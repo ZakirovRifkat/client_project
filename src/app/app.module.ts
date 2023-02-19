@@ -14,9 +14,12 @@ import { StartPageComponent } from './components/start-page/start-page.component
 import { DutyTableComponent } from './components/duty-table/duty-table.component';
 import { ShortUserInfoComponent } from './components/short-user-info/short-user-info.component';
 import { MainUserInfoComponent } from './components/main-user-info/main-user-info.component';
-import { TaskStatsComponent } from './widgets/task-stats/task-stats.component';
-import { NotificationStatsComponent } from './widgets/notification-stats/notification-stats.component';
-import { EfficiencyStatsComponent } from './widgets/efficiency-stats/efficiency-stats.component';
+import { TaskStatsComponent } from './metrics/task-stats/task-stats.component';
+import { NotificationStatsComponent } from './metrics/notification-stats/notification-stats.component';
+import { EfficiencyStatsComponent } from './metrics/efficiency-stats/efficiency-stats.component';
+import { AddMetricsComponent } from './metrics/add-metrics/add-metrics.component';
+import { IncidentsStatsComponent } from './widgets/incidents-stats/incidents-stats.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { EfficiencyStatsComponent } from './widgets/efficiency-stats/efficiency-
     TaskStatsComponent,
     NotificationStatsComponent,
     EfficiencyStatsComponent,
+    AddMetricsComponent,
+    IncidentsStatsComponent,
   ],
   imports: [
     BrowserModule,
