@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { HighchartsChartModule } from 'highcharts-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
@@ -19,7 +19,6 @@ import { NotificationStatsComponent } from './metrics/notification-stats/notific
 import { EfficiencyStatsComponent } from './metrics/efficiency-stats/efficiency-stats.component';
 import { AddMetricsComponent } from './metrics/add-metrics/add-metrics.component';
 import { IncidentsStatsComponent } from './widgets/incidents-stats/incidents-stats.component';
-
 
 @NgModule({
   declarations: [
@@ -44,6 +43,7 @@ import { IncidentsStatsComponent } from './widgets/incidents-stats/incidents-sta
     HttpClientModule,
     FormsModule,
     RouterModule,
+    HighchartsChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

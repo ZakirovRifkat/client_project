@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/models/user';
+import * as data from '../../../assets/data.json';
 
 @Component({
   selector: 'app-side-bar',
@@ -37,9 +38,7 @@ export class SideBarComponent implements OnInit, DoCheck {
   ];
 
   ngOnInit(): void {}
-  ngDoCheck(): void {
-    console.log(5);
-  }
+  ngDoCheck(): void {}
 
   getRandomColor(): number {
     return Math.random() * 255;

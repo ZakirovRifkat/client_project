@@ -10,30 +10,29 @@ export class UserInformationComponent implements OnInit, DoCheck {
   id!: number;
   password!: string;
   enteredPassword!: string;
-  IsFalsePassword!: boolean;
+  isFalsePassword!: boolean;
 
   constructor(private activateRoute: ActivatedRoute) {
     activateRoute.params.subscribe((params) => (this.id = params['id']));
     activateRoute.queryParams.subscribe((queryParam: any) => {
       this.password = queryParam['password'];
-      console.log(this.password);
     });
   }
 
   ngOnInit(): void {
-    this.IsFalsePassword = false;
+    this.isFalsePassword = false;
   }
 
   ngDoCheck(): void {
     if (this.enteredPassword != this.password) {
-      this.IsFalsePassword = false;
+      this.isFalsePassword = false;
     }
   }
 
   checkPassword(enteredPassword: string) {
     this.enteredPassword = enteredPassword;
     if (enteredPassword === this.password) {
-      this.IsFalsePassword = true;
+      this.isFalsePassword = true;
     } else {
       console.log('Неверный пароль');
     }

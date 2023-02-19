@@ -1,10 +1,17 @@
 <div class="container">
-  <div style="display: flex; justify-content: space-between;align-items: center;">
-    <div style="color:white;">Количество<br />заданий</div>
-    <div style="border-radius:50%; background-color: aqua; width: 64px; height: 64px;"></div>
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <div style="color: white">Количество<br />заданий</div>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="update"/>
   </div>
-  <div style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.6);">
-    <div>Последнее обновление<br />
-    в 12:42</div>
+  <div
+    style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.6)"
+  >
+    <div>
+      Последнее обновление<br />
+      в 12:42
+    </div>
   </div>
 </div>
+<input type="text" [(ngModel)]="value" />
