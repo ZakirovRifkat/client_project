@@ -36,7 +36,7 @@
     >
       <button class="dateBtn" (click)="today()">сегодня</button>
       <button class="dateBtn" (click)="yesterday()">вчера</button>
-      <div class="cont" [ngClass]="{active:!activeToday}"></div>
+      <div class="cont" [ngClass]="{ active: !activeToday }"></div>
     </div>
     <!-- <button>календарь</button> -->
   </div>
