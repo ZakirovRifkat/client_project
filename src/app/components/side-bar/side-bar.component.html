@@ -9,8 +9,8 @@
     <div class="gradient"></div>
     <img class="img" [src]="user.userImg" *ngIf="user.userImg" />
     <div class="side-bar__user-link">
-      {{ user.name | slice : 0 : 1 | uppercase }}
-      {{ user.surname | slice : 0 : 1 | uppercase }}
+      {{ user.name | slice : 0 : 1 | uppercase
+      }}{{ user.surname | slice : 0 : 1 | uppercase }}
     </div>
   </a>
 </div>

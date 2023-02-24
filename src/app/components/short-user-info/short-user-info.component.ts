@@ -16,14 +16,19 @@ export class ShortUserInfoComponent {
     userImg: '',
     password: '0000',
   };
-  taskStatsActive:boolean = true;
-  notificationStatsActive:boolean = true;
-  efficiencyStatsActive:boolean = true;
+  activeToday: boolean = true;
+  taskStatsActive: boolean = true;
+  notificationStatsActive: boolean = true;
+  efficiencyStatsActive: boolean = true;
   activeBtn = false;
   btnClick(): void {
     this.activeBtn = !this.activeBtn;
   }
 
-
-
+  today() {
+    this.activeToday = true;
+  }
+  yesterday() {
+    this.activeToday = false;
+  }
 }

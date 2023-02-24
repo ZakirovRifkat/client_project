@@ -3,14 +3,7 @@
     style="display: flex; justify-content: space-between; align-items: center"
   >
     <div style="color: white">Показатель<br />эффективности</div>
-    <div
-      style="
-        border-radius: 50%;
-        background-color: aqua;
-        width: 64px;
-        height: 64px;
-      "
-    ></div>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="update"/>
   </div>
   <div
     style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.6)"

@@ -17,17 +17,13 @@ const NBSP = '\u00a0';
 export class TaskStatsComponent {
   Highcharts = Highcharts;
   update = false;
-  a!: string;
+  a: number = 2;
   b: number = 4;
 
   get value(): string {
-    return 'loasdlasodl';
+    return '';
   }
-  set value(a: string) {
-    this.a = a;
-    this.chartOptions.title.text = `${a}${NBSP}/${NBSP}${this.b}`;
-    this.update = true;
-  }
+  set value(a: string) {}
 
   chartOptions = {
     chart: {

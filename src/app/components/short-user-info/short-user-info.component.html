@@ -23,9 +23,32 @@
     </button>
   </div>
   <div class="date-container">
-    <button>сегодня</button>
-    <button>вчера</button>
-    <button>календарь</button>
+    <div
+      style="
+        border-radius: 100px;
+        border: 1px solid rgba(246, 251, 253, 0.28);
+        width: 176px;
+        height: 32px;
+        display: flex;
+        justify-content: space-evenly;
+      "
+    >
+      <button
+        class="dateBtn"
+        (click)="today()"
+        [ngClass]="{ active: activeToday }"
+      >
+        сегодня
+      </button>
+      <button
+        class="dateBtn"
+        (click)="yesterday()"
+        [ngClass]="{ active: !activeToday }"
+      >
+        вчера
+      </button>
+    </div>
+    <!-- <button>календарь</button> -->
   </div>
   <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
     <app-task-stats *ngIf="taskStatsActive"></app-task-stats>
