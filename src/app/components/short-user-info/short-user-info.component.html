@@ -34,13 +34,20 @@
         position: relative;
       "
     >
-      <button class="dateBtn" (click)="today()">сегодня</button>
-      <button class="dateBtn" (click)="yesterday()">вчера</button>
+      <button class="dateBtn" (click)="today()">Cегодня</button>
+      <button class="dateBtn" (click)="yesterday()">Вчера</button>
       <div class="cont" [ngClass]="{ active: !activeToday }"></div>
     </div>
     <!-- <button>календарь</button> -->
   </div>
-  <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+  <div
+    style="
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    "
+  >
     <app-metrics [type]="'task'"></app-metrics>
     <app-metrics [type]="'notification'"></app-metrics>
     <app-metrics [type]="'efficient'"></app-metrics>

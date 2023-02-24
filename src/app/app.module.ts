@@ -12,10 +12,10 @@ import { PasswordFormComponent } from './components/password-form/password-form.
 import { DutyTableComponent } from './components/duty-table/duty-table.component';
 import { ShortUserInfoComponent } from './components/short-user-info/short-user-info.component';
 import { MainUserInfoComponent } from './components/main-user-info/main-user-info.component';
-import { IncidentsStatsComponent } from './widgets/incidents-stats/incidents-stats.component';
 import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { MetricsComponent } from './components/metrics/metrics.component';
+import { WidgetsComponent } from './components/widgets/widgets.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,10 @@ import { MetricsComponent } from './components/metrics/metrics.component';
     DutyTableComponent,
     ShortUserInfoComponent,
     MainUserInfoComponent,
-    IncidentsStatsComponent,
     UserInfoPageComponent,
     NotFoundPageComponent,
     MetricsComponent,
+    WidgetsComponent,
   ],
   imports: [
     BrowserModule,

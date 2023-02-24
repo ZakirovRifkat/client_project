@@ -1,10 +1,14 @@
 <div class="container">
-  <div style="display: flex; justify-content: space-between; align-items: center;">
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
     <div>
       <div style="font-size: 24px; color: white">
         Аналитика по рабочему месту
       </div>
-      <div style="color: rgba(255, 255, 255, 0.6); font-weight:400;">Установка КВР-342</div>
+      <div style="color: rgba(255, 255, 255, 0.6); font-weight: 400">
+        Установка КВР-342
+      </div>
     </div>
     <div style="display: flex; gap: 10px">
       <button
@@ -60,10 +64,20 @@
       </button>
     </div>
   </div>
-  <div style="display:flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; margin-top: 40px;">
-    <app-incidents-stats></app-incidents-stats>
-    <app-incidents-stats></app-incidents-stats>
-    <app-incidents-stats></app-incidents-stats>
-    <app-incidents-stats></app-incidents-stats>
+  <div
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 10px;
+      row-gap: 30px;
+      column-gap: 50px;
+      margin-top: 40px;
+    "
+  >
+    <app-widgets [type]="'incident'"></app-widgets>
+    <app-widgets [type]="'KPE'"></app-widgets>
+    <app-widgets [type]="'event'"></app-widgets>
+    <app-widgets [type]="'laboratory'"></app-widgets>
+    <app-widgets></app-widgets>
   </div>
 </div>
