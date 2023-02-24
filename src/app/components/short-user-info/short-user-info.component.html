@@ -41,11 +41,9 @@
     <!-- <button>календарь</button> -->
   </div>
   <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
-    <app-task-stats *ngIf="taskStatsActive"></app-task-stats>
-    <app-notification-stats
-      *ngIf="notificationStatsActive"
-    ></app-notification-stats>
-    <app-efficiency-stats *ngIf="efficiencyStatsActive"></app-efficiency-stats>
-    <app-add-metrics></app-add-metrics>
+    <app-metrics [type]="'task'"></app-metrics>
+    <app-metrics [type]="'notification'"></app-metrics>
+    <app-metrics [type]="'efficient'"></app-metrics>
+    <app-metrics></app-metrics>
   </div>
 </div>

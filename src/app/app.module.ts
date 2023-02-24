@@ -19,6 +19,7 @@ import { AddMetricsComponent } from './metrics/add-metrics/add-metrics.component
 import { IncidentsStatsComponent } from './widgets/incidents-stats/incidents-stats.component';
 import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { MetricsComponent } from './components/metrics/metrics.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     IncidentsStatsComponent,
     UserInfoPageComponent,
     NotFoundPageComponent,
+    MetricsComponent,
   ],
   imports: [
     BrowserModule,

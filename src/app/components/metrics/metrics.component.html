@@ -1,0 +1,77 @@
+<div class="container" [ngClass]="{add:type === 'add'}">
+  
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <div style="color: white; max-width: 126px;">{{title}}</div>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="update"/>
+  </div>
+  <div
+    style="font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.6); display: flex;
+    justify-content: space-between;
+    align-items: flex-end;"
+  >
+    <div *ngIf="type != 'efficient'">
+      Последнее обновление<br />
+      в {{updateTime | date:'HH:mm'}}
+    </div>
+    <div *ngIf= "type ==='efficient'">
+      Последняя активность<br />
+      в {{updateTime | date:'HH:mm'}}
+    </div>
+    <button
+      style="
+        background-color: #0078d2;
+        border: none;
+        border-radius: 99px;
+        color: white;
+        font-weight: 400;
+        width: 98px;
+        height: 24px;
+        cursor: pointer;
+      "
+      onclick="alert('Напоминаю')"
+      *ngIf="type === 'notification'"
+    >
+      Напомнить
+    </button>
+  </div>
+  <div class="add-container" *ngIf="type === 'add'">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <img
+        style="height: 24px; width: 24px; margin: 15px 0 10px 0"
+        src="../../../assets/IconAddWidget.svg"
+      />
+      <div
+        style="
+          text-align: center;
+          color: white;
+          font-size: 14px;
+          font-weight: 400;
+        "
+      >
+        Добавить метрики эффективности
+      </div>
+    </div>
+    <button
+      style="
+        border: none;
+        border-radius: 99px;
+        background-color: rgba(250, 250, 250, 0.16);
+        color: white;
+        width: 90px;
+        height: 24px;
+        cursor: pointer;
+      "
+    >
+      Добавить
+    </button>
+  </div>
+</div>
