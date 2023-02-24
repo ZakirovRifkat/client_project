@@ -68,14 +68,24 @@
   display: flex;
   margin: 48px 0 24px 0;
 }
-.dateBtn{
+.dateBtn {
   border: none;
   background-color: transparent;
   color: white;
   width: 50%;
-}
-.active{
-  background-color: #0078d2;
   border-radius: 100px;
+  z-index: 1;
 }
-
+.cont {
+  background-color: #0078d2;
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 100px;
+  transition: all 1s;
+}
+.active {
+  left: 50%;
+  transition: all 1s;
+}

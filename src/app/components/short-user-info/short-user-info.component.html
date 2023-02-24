@@ -31,22 +31,12 @@
         height: 32px;
         display: flex;
         justify-content: space-evenly;
+        position: relative;
       "
     >
-      <button
-        class="dateBtn"
-        (click)="today()"
-        [ngClass]="{ active: activeToday }"
-      >
-        сегодня
-      </button>
-      <button
-        class="dateBtn"
-        (click)="yesterday()"
-        [ngClass]="{ active: !activeToday }"
-      >
-        вчера
-      </button>
+      <button class="dateBtn" (click)="today()">сегодня</button>
+      <button class="dateBtn" (click)="yesterday()">вчера</button>
+      <div class="cont" [ngClass]="{active:!activeToday}"></div>
     </div>
     <!-- <button>календарь</button> -->
   </div>
@@ -59,4 +49,3 @@
     <app-add-metrics></app-add-metrics>
   </div>
 </div>
-
