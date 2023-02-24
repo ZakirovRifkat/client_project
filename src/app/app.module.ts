@@ -12,10 +12,6 @@ import { PasswordFormComponent } from './components/password-form/password-form.
 import { DutyTableComponent } from './components/duty-table/duty-table.component';
 import { ShortUserInfoComponent } from './components/short-user-info/short-user-info.component';
 import { MainUserInfoComponent } from './components/main-user-info/main-user-info.component';
-import { TaskStatsComponent } from './metrics/task-stats/task-stats.component';
-import { NotificationStatsComponent } from './metrics/notification-stats/notification-stats.component';
-import { EfficiencyStatsComponent } from './metrics/efficiency-stats/efficiency-stats.component';
-import { AddMetricsComponent } from './metrics/add-metrics/add-metrics.component';
 import { IncidentsStatsComponent } from './widgets/incidents-stats/incidents-stats.component';
 import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
@@ -30,10 +26,6 @@ import { MetricsComponent } from './components/metrics/metrics.component';
     DutyTableComponent,
     ShortUserInfoComponent,
     MainUserInfoComponent,
-    TaskStatsComponent,
-    NotificationStatsComponent,
-    EfficiencyStatsComponent,
-    AddMetricsComponent,
     IncidentsStatsComponent,
     UserInfoPageComponent,
     NotFoundPageComponent,
