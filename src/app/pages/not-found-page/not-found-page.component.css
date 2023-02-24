@@ -1,0 +1,8 @@
+.not-found.page{
+  min-height: 100vh;
+  color: maroon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

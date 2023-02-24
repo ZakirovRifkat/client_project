@@ -1,12 +1,12 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-user-information',
-  templateUrl: './user-information.component.html',
-  styleUrls: ['./user-information.component.css'],
+  selector: 'app-user-info-page',
+  templateUrl: './user-info-page.component.html',
+  styleUrls: ['./user-info-page.component.css'],
 })
-export class UserInformationComponent implements OnInit, DoCheck {
+export class UserInfoPageComponent implements OnInit, DoCheck {
   id!: number;
   password!: string;
   enteredPassword!: string;

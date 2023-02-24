@@ -58,10 +58,12 @@
   border: none;
   font-size: 14px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .user-btn-active {
   background-color: red;
+  transition: 0.2s;
 }
 
 .date-container {
@@ -83,9 +85,9 @@
   width: 50%;
   height: 100%;
   border-radius: 100px;
-  transition: all 1s;
+  transition: 0.4s;
 }
 .active {
   left: 50%;
-  transition: all 1s;
+  transition: 0.4s;
 }
