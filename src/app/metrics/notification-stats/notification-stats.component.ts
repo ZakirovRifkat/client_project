@@ -4,7 +4,7 @@ const NBSP = '\u00a0';
 @Component({
   selector: 'app-notification-stats',
   templateUrl: './notification-stats.component.html',
-  styleUrls: ['./notification-stats.component.css']
+  styleUrls: ['./notification-stats.component.css'],
 })
 export class NotificationStatsComponent {
   Highcharts = Highcharts;
@@ -25,7 +25,7 @@ export class NotificationStatsComponent {
         size: 64,
         innerSize: 54,
         borderWidth: 0,
-        colors: ['indigo', 'palevioletred'],
+        colors: ['rgba(242, 201, 76, 1)', 'rgba(22, 26, 29, 1)'],
         startAngle: 180,
         states: {
           hover: { enabled: false },

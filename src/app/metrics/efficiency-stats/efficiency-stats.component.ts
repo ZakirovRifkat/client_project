@@ -4,7 +4,7 @@ const NBSP = '\u00a0';
 @Component({
   selector: 'app-efficiency-stats',
   templateUrl: './efficiency-stats.component.html',
-  styleUrls: ['./efficiency-stats.component.css']
+  styleUrls: ['./efficiency-stats.component.css'],
 })
 export class EfficiencyStatsComponent {
   Highcharts = Highcharts;
@@ -25,7 +25,7 @@ export class EfficiencyStatsComponent {
         size: 64,
         innerSize: 54,
         borderWidth: 0,
-        colors: ['indigo', 'palevioletred'],
+        colors: ['maroon', 'rgba(22, 26, 29, 1)'],
         startAngle: 180,
         states: {
           hover: { enabled: false },

@@ -41,7 +41,7 @@ export class TaskStatsComponent {
         size: 64,
         innerSize: 54,
         borderWidth: 0,
-        colors: ['indigo', 'palevioletred'],
+        colors: ['rgba(36, 195, 142, 1)', 'rgba(22, 26, 29, 1)'],
         startAngle: 180,
         states: {
           hover: { enabled: false },
