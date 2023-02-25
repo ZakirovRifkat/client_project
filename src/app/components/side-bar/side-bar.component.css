@@ -17,7 +17,10 @@
   border-radius: 50%;
   color: white;
   font-family: inherit;
-  background-color: rgb(175, 69, 8);;
+  background-color: #f56b00;
+  text-align: center;
+  padding-top: 2px;
+  box-sizing: border-box;
 }
 
 .gradient {

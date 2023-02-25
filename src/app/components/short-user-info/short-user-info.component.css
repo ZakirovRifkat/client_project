@@ -19,8 +19,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(175, 69, 8);
+  background-color: #F56B00;
   box-shadow: 0px 0px 1px 2px rgba(17, 125, 207, 1);
+  padding-top: 3px;
+  box-sizing: border-box;
 }
 
 .user-avatar-gradient {

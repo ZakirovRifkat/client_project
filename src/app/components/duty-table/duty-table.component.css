@@ -39,6 +39,27 @@
   cursor: pointer;
 }
 
+.duty-table__container {
+  padding: 42px 46px;
+}
+
+.duty-table__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duty-table__header-title {
+  color: white;
+  font-size: 24px;
+}
+
+.duty-table__header-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  font-size: 14px;
+}
+
 .downloadBtn img {
   margin-right: 12px;
 }
