@@ -1,53 +1,42 @@
-<div class="container">
-  <div class="user-name-container">
-    <div class="name">
+<div class="short-user-info__container">
+  <div class="short-user-info__header">
+    <div class="user-avatar">
       <img [src]="user.userImg" *ngIf="user.userImg" />
-      <div class="user-avatar-gradient"></div>
-      <div class="user-avatar">
+      <div class="user-avatar__gradient"></div>
+      <div class="user-avatar__name">
         {{ user.name | slice : 0 : 1 | uppercase
         }}{{ user.surname | slice : 0 : 1 | uppercase }}
       </div>
       <div>
-        <div class="user-name">{{ user.name }} {{ user.surname }}</div>
-        <div class="user-job">
+        <div class="user__name">{{ user.name }} {{ user.surname }}</div>
+        <div class="user__job">
           {{ user.jobTitle }}
         </div>
       </div>
     </div>
+
     <button
-      class="user-btn"
-      [ngClass]="{ 'user-btn-active': activeBtn }"
+      class="shift-btn"
+      [ngClass]="{ 'shift-bnt_active': activeBtn }"
       (click)="btnClick()"
     >
       Заступить на смену
     </button>
   </div>
-  <div class="date-container">
-    <div
-      style="
-        border-radius: 100px;
-        border: 1px solid rgba(246, 251, 253, 0.28);
-        width: 176px;
-        height: 32px;
-        display: flex;
-        justify-content: space-evenly;
-        position: relative;
-      "
-    >
-      <button class="dateBtn" (click)="today()">Cегодня</button>
-      <button class="dateBtn" (click)="yesterday()">Вчера</button>
-      <div class="cont" [ngClass]="{ active: !activeToday }"></div>
+
+  <div class="choise-date">
+    <div class="date__container">
+      <button class="date__btn" (click)="today()">Cегодня</button>
+      <button class="date__btn" (click)="yesterday()">Вчера</button>
+      <div
+        class="date__btn_active-today"
+        [ngClass]="{ 'date__btn_active-yesterday': !activeToday }"
+      ></div>
     </div>
     <!-- <button>календарь</button> -->
   </div>
-  <div
-    style="
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 30px;
-    "
-  >
+
+  <div class="metrics__container">
     <app-metrics [type]="'task'"></app-metrics>
     <app-metrics [type]="'notification'"></app-metrics>
     <app-metrics [type]="'efficient'"></app-metrics>
