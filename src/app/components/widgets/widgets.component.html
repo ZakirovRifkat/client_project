@@ -95,21 +95,125 @@
     </div>
   </div>
 
-<div style="padding: 30px 38px 30px 20px; display: flex; justify-content: space-between;">
-  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="update" *ngIf="type === 'incident'"/>
-  <div *ngIf="type === 'incident'" style="display:flex; flex-direction: column; color: rgba(255, 255, 255, 0.6); font-size: 12px;font-weight: 400; line-height: 12px; font-family: 'Roboto',sans-serif; gap:12px;">
-  <div><div class="circle circle_green"></div> Закрытые</div>
-  <div><div class="circle circle_orange"></div>Активные</div>
-  <div><div class="circle circle_dark"></div>Новые</div>
-</div>
-</div>
-
-
-
-
-
-
-
+  <div
+    style="padding: 30px 20px; display: flex; justify-content: space-between"
+    *ngIf="type != 'event'"
+  >
+    <highcharts-chart 
+      [Highcharts]="Highcharts" 
+      [options]="chartOptionsPie" 
+      [(update)]="update" 
+      *ngIf="type === 'incident'"/>
+    <div
+      *ngIf="type === 'incident'"
+      style="
+        display: flex;
+        flex-direction: column;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 12px;
+        font-family: 'Roboto', sans-serif;
+        gap: 12px;
+      "
+    >
+      <div>
+        <div class="circle circle_green"></div>
+        Закрытые
+      </div>
+      <div>
+        <div class="circle circle_orange"></div>
+        Активные
+      </div>
+      <div>
+        <div class="circle circle_dark"></div>
+        Новые
+      </div>
+    </div>
+    <div *ngIf="type === 'KPE'">
+      <highcharts-chart 
+        [Highcharts]="Highcharts" 
+        [options]="chartOptionsLine" 
+        [(update)]="update" 
+        *ngIf="type === 'KPE'"/>
+    </div>
+    <div
+      style="overflow: auto; box-sizing: border-box"
+      *ngIf="type === 'laboratory'"
+    >
+      <highcharts-chart 
+        [Highcharts]="Highcharts" 
+        [options]="chartOptionsBar" 
+        [(update)]="update" 
+        *ngIf="type === 'laboratory'"
+      />
+      <div
+        style="
+          text-align: center;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+          color: rgba(255, 255, 255, 0.6);
+          margin: 10px;
+        "
+        *ngIf="type === 'laboratory'"
+      >
+        Месяц
+      </div>
+    </div>
+  </div>
+  <div *ngIf="type === 'event'">
+    <div class="event">
+      <div class="title">
+        <div style="color: white">Произошла корректировка</div>
+        <div
+          style="
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+          "
+        >
+          Блок компрессоров
+        </div>
+      </div>
+      <div
+        style="
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 14px;
+          line-height: 21px;
+          font-weight: 400;
+        "
+      >
+        26.05.2022
+      </div>
+    </div>
+    <div class="event">
+      <div class="title">
+        <div style="color: white">Произошла корректировка</div>
+        <div
+          style="
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+          "
+        >
+          Блок компрессоров
+        </div>
+      </div>
+      <div
+        style="
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 14px;
+          line-height: 21px;
+          font-weight: 400;
+        "
+      >
+        26.05.2022
+      </div>
+    </div>
+  </div>
 
   <div class="add-container" *ngIf="type === 'add'">
     <div
@@ -151,5 +255,4 @@
       Добавить
     </button>
   </div>
-
 </div>

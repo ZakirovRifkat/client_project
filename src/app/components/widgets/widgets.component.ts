@@ -49,7 +49,7 @@ export class WidgetsComponent implements OnInit {
 
   Highcharts = Highcharts;
   update = false;
-  chartOptions = {
+  chartOptionsPie = {
     chart: {
       type: 'pie',
       width: 231,
@@ -74,21 +74,33 @@ export class WidgetsComponent implements OnInit {
         allowPointSelect: true,
         cursor: 'pointer',
         dataLabels: {
-          enabled:false,
-        }
+          enabled: false,
+        },
       },
     },
 
     title: {
       verticalAlign: 'middle' as const,
       floating: true,
-      y: 35,
+      y: 42,
       text: `24`,
       style: {
         color: 'white',
         fontSize: '32px',
         lineHeight: '21px',
         textAlign: 'center',
+      },
+    },
+    subtitle: {
+      text: `Всего`,
+      verticalAlign: 'middle' as const,
+      y: -12,
+      style: {
+        color: 'rgba(255, 255, 255, 0.6)',
+        fontSize: '12px',
+        lineHeight: '12px',
+        textAlign: 'center',
+        fontWeight: '400',
       },
     },
     credits: {
@@ -99,6 +111,168 @@ export class WidgetsComponent implements OnInit {
         type: 'pie' as const,
         name: 'Line 1',
         data: [6, 3, 3],
+      },
+    ],
+    tooltip: {
+      enabled: false,
+    },
+  };
+  chartOptionsLine = {
+    chart: {
+      type: 'line',
+      width: 375,
+      height: 231,
+      spacingTop: 0,
+      spacingBottom: 0,
+      spacingRight: 0,
+      spacingLeft: 0,
+      backgroundColor: 'transparent',
+    },
+    plotOptions: {
+      line: {
+        allowPointerSelect: false,
+        enableMouseTracking: false,
+      },
+      series: {
+        label: {
+          connectorAllowed: false,
+        },
+        pointEnd: 12,
+      },
+    },
+    legend: {
+      enabled: false,
+    },
+    title: {
+      text: '',
+    },
+    yAxis: {
+      gridLineWidth: 0.2,
+      labels: {
+        enabled: false,
+      },
+      categories: [''],
+      title: {
+        text: null,
+      },
+    },
+    xAxis: {
+      title: {
+        text: 'Месяц',
+        style: {
+          color: 'rgba(255, 255, 255, 0.6)',
+          fontSize: '12px',
+          lineHeight: '12px',
+          textAlign: 'center',
+          fontWeight: '400',
+          fontFamily:'Inter, sans-serif',
+        },
+      },
+      gridLineWidth: 0.2,
+      categories: [
+        '01',
+        '02',
+        '03',
+        '04',
+        '05',
+        '06',
+        '07',
+        '08',
+        '09',
+        '10',
+        '11',
+        '12',
+      ],
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    credits: {
+      enabled: false,
+    },
+    series: [
+      {
+        type: 'line' as const,
+        name: 'Показатель КПЭ',
+        style: {
+          color: 'white',
+          fontWeight: 400,
+        },
+        data: [6, 3, 3, 6, 3],
+      },
+    ],
+    tooltip: {
+      enabled: false,
+    },
+  };
+
+  chartOptionsBar = {
+    chart: {
+      type: 'column',
+      height: 185,
+      spacingTop: 0,
+      spacingBottom: 0,
+      spacingRight: 0,
+      spacingLeft: 0,
+      backgroundColor: 'transparent',
+    },
+    plotOptions: {
+      column: {
+        borderWidth: 0,
+        pointWidth: 38,
+      },
+      series: {
+        label: {
+          connectorAllowed: false,
+        },
+      },
+    },
+
+    title: {
+      text: '',
+    },
+    yAxis: {
+      gridLineWidth: 0.2,
+      labels: {
+        enabled: false,
+      },
+      title: {
+        text: null,
+      },
+    },
+    xAxis: {
+      title: {
+        text: null,
+      },
+      gridLineWidth: 0.2,
+      categories: [
+        '01',
+        '02',
+        '03',
+        '04',
+        '05',
+        '06',
+        '07',
+        '08',
+        '09',
+        '10',
+        '11',
+        '12',
+      ],
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    credits: {
+      enabled: false,
+    },
+    series: [
+      {
+        type: 'column' as const,
+        name: '',
+        data: [6, 3, 3, 6, 3, 3, 6, 3, 3, 6, 3, 3],
+        showInLegend: false,
+        groupPaddin: 0,
       },
     ],
     tooltip: {

@@ -40,6 +40,11 @@ export class MetricsComponent {
           hover: { enabled: false },
           inactive: { enabled: false },
         },
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: false,
+        },
       },
     },
     title: {

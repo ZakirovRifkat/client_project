@@ -82,3 +82,17 @@
 .circle_dark {
   background-color: #161a1d;
 }
+.event{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 73px;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
