@@ -95,6 +95,22 @@
     </div>
   </div>
 
+<div style="padding: 30px 38px 30px 20px; display: flex; justify-content: space-between;">
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="update" *ngIf="type === 'incident'"/>
+  <div *ngIf="type === 'incident'" style="display:flex; flex-direction: column; color: rgba(255, 255, 255, 0.6); font-size: 12px;font-weight: 400; line-height: 12px; font-family: 'Roboto',sans-serif; gap:12px;">
+  <div><div class="circle circle_green"></div> Закрытые</div>
+  <div><div class="circle circle_orange"></div>Активные</div>
+  <div><div class="circle circle_dark"></div>Новые</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
   <div class="add-container" *ngIf="type === 'add'">
     <div
       style="
@@ -135,4 +151,5 @@
       Добавить
     </button>
   </div>
+
 </div>
