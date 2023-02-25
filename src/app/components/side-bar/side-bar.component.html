@@ -4,11 +4,11 @@
     *ngFor="let user of users"
     [routerLink]="['/info', user.id]"
     [queryParams]="{ password: user.password }"
-    routerLinkActive="side-bar__link-active"
+    routerLinkActive="side-bar__link_active"
   >
-    <div class="gradient"></div>
-    <img class="img" [src]="user.userImg" *ngIf="user.userImg" />
-    <div class="side-bar__user-link">
+    <div class="avatar-gradient"></div>
+    <img class="user-avatar-img" [src]="user.userImg" *ngIf="user.userImg" />
+    <div class="side-bar__user-name">
       {{ user.name | slice : 0 : 1 | uppercase
       }}{{ user.surname | slice : 0 : 1 | uppercase }}
     </div>
