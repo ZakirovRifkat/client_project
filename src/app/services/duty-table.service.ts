@@ -11,6 +11,6 @@ export class DutyTableService {
   constructor(private http: HttpClient) {}
 
   getTableDataByUser(userId: number): Observable<IDuty[]> {
-    return this.http.get<IDuty[]>(`./assets/user` + userId + `.duty.json`);
+    return this.http.get<IDuty[]>(`./assets/data/user` + userId + `/duty.json`);
   }
 }
