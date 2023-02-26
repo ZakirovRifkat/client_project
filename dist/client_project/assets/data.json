@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "vlad",
+    "surname": "Eladovsci",
+    "jobTitle": "eblan1",
+    "userImg": "",
+    "password": "0000"
+  },
+  {
+    "id": 2,
+    "name": "katy",
+    "surname": "gub",
+    "jobTitle": "eblan2",
+    "userImg": "",
+    "password": "1111"
+  },
+  {
+    "id": 3,
+    "name": "egor",
+    "surname": "uralopv",
+    "jobTitle": "eblan2",
+    "userImg": "",
+    "password": "2222"
+  }
+]
