@@ -1,0 +1,44 @@
+[
+  {
+    "userId": 2,
+    "id": 0,
+    "tasks": {
+      "done": 3,
+      "all": 13
+    },
+    "notification": {
+      "readed": 1,
+      "all": 7
+    },
+    "efficient": 0.15,
+    "date": "26.02.2023"
+  },
+  {
+    "userId": 2,
+    "id": 1,
+    "tasks": {
+      "done": 4,
+      "all": 15
+    },
+    "notification": {
+      "readed": 3,
+      "all": 8
+    },
+    "efficient": 0.65,
+    "date": "25.02.2023"
+  },
+  {
+    "userId": 2,
+    "id": 2,
+    "tasks": {
+      "done": 9,
+      "all": 12
+    },
+    "notification": {
+      "readed": 7,
+      "all": 8
+    },
+    "efficient": 0.55,
+    "date": "24.02.2023"
+  }
+]

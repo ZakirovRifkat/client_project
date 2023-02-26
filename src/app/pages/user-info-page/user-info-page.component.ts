@@ -24,7 +24,6 @@ export class UserInfoPageComponent implements OnInit, DoCheck {
 
   ngOnInit(): void {
     this.getUserById(this.id);
-    console.log(this.user);
     this.isFalsePassword = false;
   }
 

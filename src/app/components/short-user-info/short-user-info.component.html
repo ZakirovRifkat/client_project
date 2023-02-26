@@ -37,9 +37,9 @@
   </div>
 
   <div class="metrics__container">
-    <app-metrics [type]="'task'" [user]="user"></app-metrics>
-    <app-metrics [type]="'notification'" [user]="user"></app-metrics>
-    <app-metrics [type]="'efficient'" [user]="user"></app-metrics>
-    <app-metrics></app-metrics>
+    <app-metrics [type]="'task'" [metric]="sendMetric"></app-metrics>
+    <app-metrics [type]="'notification'" [metric]="sendMetric"></app-metrics>
+    <app-metrics [type]="'efficient'" [metric]="sendMetric"></app-metrics>
+    <app-metrics [type]="'add'"></app-metrics>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { IMetric } from 'src/app/models/metric';
 import { IUser } from 'src/app/models/user';
 
 const NBSP: string = '\u00A0';
@@ -11,7 +12,7 @@ const NBSP: string = '\u00A0';
 })
 export class MetricsComponent implements OnChanges, OnInit {
   @Input() type!: string;
-  @Input() user!: IUser;
+  @Input() metric!: IMetric;
   title!: string;
   updateTime!: Date;
   chartColor: string = '#800000';
@@ -75,41 +76,41 @@ export class MetricsComponent implements OnChanges, OnInit {
   };
 
   ngOnInit(): void {
-    this.setMetrics(this.user);
+    this.setMetrics(this.metric);
   }
   ngOnChanges() {
-    this.setMetrics(this.user);
+    this.setMetrics(this.metric);
     this.update = true;
   }
 
-  setMetrics(user: IUser): void {
+  setMetrics(metric: IMetric): void {
     if (this.type === 'task') {
       this.title = `Количество заданий`;
       this.updateTime = new Date(1642546324516587);
       this.chartOptions.plotOptions.pie.colors[0] = '#24C38E';
       this.chartOptions.series[0].data = [
-        user.tasks.done,
-        user.tasks.all - user.tasks.done,
+        metric.tasks.done,
+        metric.tasks.all - metric.tasks.done,
       ];
-      this.chartOptions.title.text = `${user.tasks.done}${NBSP}/${NBSP}${user.tasks.all}`;
+      this.chartOptions.title.text = `${metric.tasks.done}${NBSP}/${NBSP}${metric.tasks.all}`;
     } else if (this.type === 'notification') {
       this.title = 'Уведомления';
       this.chartOptions.plotOptions.pie.colors[0] = '#F2C94C';
       this.updateTime = new Date(1682546324516587);
       this.chartOptions.series[0].data = [
-        user.notification.readed,
-        user.notification.all - user.notification.readed,
+        metric.notification.readed,
+        metric.notification.all - metric.notification.readed,
       ];
-      this.chartOptions.title.text = `${user.notification.readed}${NBSP}/${NBSP}${user.notification.all}`;
+      this.chartOptions.title.text = `${metric.notification.readed}${NBSP}/${NBSP}${metric.notification.all}`;
     } else if (this.type === 'efficient') {
       this.title = 'Показатель эффективноcти';
       this.updateTime = new Date(1662546324516587);
       this.chartOptions.plotOptions.pie.colors[0] = '#800000';
       this.chartOptions.series[0].data = [
-        user.efficient * 100,
-        (1 - user.efficient) * 100,
+        metric.efficient * 100,
+        (1 - metric.efficient) * 100,
       ];
-      this.chartOptions.title.text = `${user.efficient * 100}%`;
+      this.chartOptions.title.text = `${metric.efficient * 100}%`;
     } else {
       this.type = 'add';
     }
