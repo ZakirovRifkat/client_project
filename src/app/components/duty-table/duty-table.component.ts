@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
+import { IDuty } from 'src/app/models/duty';
+import { DutyTableService } from 'src/app/services/duty-table.service';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -6,8 +8,26 @@ import * as XLSX from 'xlsx';
   templateUrl: './duty-table.component.html',
   styleUrls: ['./duty-table.component.css'],
 })
-export class DutyTableComponent {
+export class DutyTableComponent implements OnChanges{
+  @Input() userId!: number;
+  @Input() userJob!: string;
+  data!: IDuty[];
   fileName: string = 'ExcelSheet.xlsx';
+  constructor(private dutyTableService: DutyTableService) {}
+
+  ngOnChanges(): void {
+    this.uploadData();
+  }
+  uploadData(): void {
+    this.dutyTableService
+      .getTableDataByUser(this.userId)
+      .subscribe((stream) => {
+        this.data = stream;
+        console.log(this.data);
+        
+      });
+  }
+
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');

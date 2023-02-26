@@ -2,7 +2,7 @@
   <div class="duty-table__header">
     <div>
       <div class="duty-table__header-title">Журнал смен</div>
-      <div class="duty-table__header-subtitle">Блок КВР-342</div>
+      <div class="duty-table__header-subtitle">{{userJob}}</div>
     </div>
     <button class="downloadBtn" (click)="exportexcel()">
       <img src="../../../assets/IconDownload.svg" />Загрузить
@@ -20,47 +20,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>16.03.2022</td>
-        <td>Елисеева</td>
-        <td>Технолог</td>
-        <td>Без проишествий</td>
-        <td>28.03.2022</td>
-      </tr>
-      <tr>
-        <td>16.03.2022</td>
-        <td>Елисеева</td>
-        <td>Технолог</td>
-        <td>Без проишествий</td>
-        <td>28.03.2022</td>
-      </tr>
-      <tr>
-        <td>16.03.2022</td>
-        <td>Елисеева</td>
-        <td>Технолог</td>
-        <td>Без проишествий</td>
-        <td>28.03.2022</td>
-      </tr>
-      <tr>
-        <td>16.03.2022</td>
-        <td>Елисеева</td>
-        <td>Технолог</td>
-        <td>Без проишествий</td>
-        <td>28.03.2022</td>
-      </tr>
-      <tr>
-        <td>16.03.2022</td>
-        <td>Елисеева</td>
-        <td>Технолог</td>
-        <td>Без проишествий</td>
-        <td>28.03.2022</td>
-      </tr>
-      <tr>
-        <td>16.03.2022</td>
-        <td>Елисеева</td>
-        <td>Технолог</td>
-        <td>Без проишествий</td>
-        <td>28.03.2022</td>
+      <tr *ngFor="let element of data">
+        <td>{{ element.startTime }}</td>
+        <td>{{ element.name }}</td>
+        <td>{{ element.job }}</td>
+        <td>{{ element.status }}</td>
+        <td>{{ element.endTime }}</td>
       </tr>
     </tbody>
   </table>
