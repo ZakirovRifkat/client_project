@@ -1,6 +1,25 @@
-body{
+
+body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter',sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
+}
+
+/* width */
+.highcharts-scrolling::-webkit-scrollbar {
+  height: 8px;
+  
+}
+
+/* Track */
+.highcharts-scrolling::-webkit-scrollbar-track {
+  background: rgba(246, 251, 253, 0.06);
+  border-radius: 10px;
+}
+
+/* Handle */
+.highcharts-scrolling::-webkit-scrollbar-thumb {
+  background:  rgba(246, 251, 253, 0.24);
+  border-radius: 4px;
 }

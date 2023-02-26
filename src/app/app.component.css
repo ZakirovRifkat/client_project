@@ -1,4 +1,4 @@
-.container {
+.app__container {
   display: flex;
   height: 100%;
   width: 100%;
@@ -8,7 +8,6 @@
 .outlet {
   width: 100%;
 }
-.main{
+.main {
   height: 100%;
 }
-

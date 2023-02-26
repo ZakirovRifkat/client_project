@@ -4,19 +4,21 @@ interface Food {
   value: string;
   viewValue: string;
 }
+
+const min = 2;
+const max = 6;
 @Component({
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
   styleUrls: ['./widgets.component.css'],
 })
-
 export class WidgetsComponent implements OnInit {
   @Input() type!: string;
   selectedValue!: string;
   foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos' },
   ];
   title!: string;
   activeDay: boolean = true;
@@ -126,7 +128,8 @@ export class WidgetsComponent implements OnInit {
     tooltip: {
       enabled: false,
     },
-  };
+  } satisfies Highcharts.Options;
+
   chartOptionsLine = {
     chart: {
       type: 'line',
@@ -140,14 +143,14 @@ export class WidgetsComponent implements OnInit {
     },
     plotOptions: {
       line: {
-        allowPointerSelect: false,
+        // allowPointerSelect: false,
         enableMouseTracking: false,
       },
       series: {
         label: {
           connectorAllowed: false,
         },
-        pointEnd: 12,
+        // pointEnd: 12,
       },
     },
     legend: {
@@ -179,24 +182,25 @@ export class WidgetsComponent implements OnInit {
         },
       },
       gridLineWidth: 0.2,
-      categories: [
-        '01',
-        '02',
-        '03',
-        '04',
-        '05',
-        '06',
-        '07',
-        '08',
-        '09',
-        '10',
-        '11',
-        '12',
-      ],
+      min,
+      max,
+      startOnTick: true,
+      endOnTick: true,
+      // tickAmount: 12,
+      tickPositions: Array.from({ length: max - min + 1 }).map(
+        (_, i) => min + i
+        // new Date(`${String(i + 1).padStart(2, '0')}-01-2023`).getTime()
+      ),
+      // labels: {
+      //   formatter() {
+      //     return String(this.value);
+      //     // return String(new Date(this.value).getMonth() + 1);
+      //   },
+      // },
     },
-    dataLabels: {
-      enabled: false,
-    },
+    // dataLabels: {
+    //   enabled: false,
+    // },
     credits: {
       enabled: false,
     },
@@ -204,47 +208,43 @@ export class WidgetsComponent implements OnInit {
       {
         type: 'line' as const,
         name: 'Показатель КПЭ',
-        style: {
-          color: 'white',
-          fontWeight: 400,
-        },
-        data: [6, 3, 3, 6, 3],
+        // style: {
+        //   color: 'white',
+        //   fontWeight: 400,
+        // } as any,
+        data: [
+          // [new Date('02-01-2023').getTime(), 3],
+          // [new Date('02-10-2023').getTime(), 2],
+          // [new Date('02-20-2023').getTime(), 6],
+          // [new Date('03-01-2023').getTime(), 4],
+          // [new Date('03-10-2023').getTime(), 3],
+          // [new Date('03-20-2023').getTime(), 5],
+          [1 + 18 / 31, 2],
+          [2 + 25 / 31, 4],
+          [3 + 5 / 31, 5],
+        ],
       },
     ],
     tooltip: {
       enabled: false,
     },
-  };
+  } satisfies Highcharts.Options;
 
   chartOptionsBar = {
     chart: {
       type: 'column',
       height: 185,
       spacingTop: 0,
-      spacingBottom: 0,
+      spacingBottom: 5,
       spacingRight: 0,
       spacingLeft: 0,
       backgroundColor: 'transparent',
       scrollablePlotArea: {
-        minWidth: 700,
+        minWidth: 800,
         scrollPositionX: 0,
-        
       },
     },
-    scrollbar: {
-      barBackgroundColor: 'gray',
-      barBorderRadius: 7,
-      barBorderWidth: 0,
-      buttonBackgroundColor: 'gray',
-      buttonBorderWidth: 0,
-      buttonArrowColor: 'yellow',
-      buttonBorderRadius: 7,
-      rifleColor: 'yellow',
-      trackBackgroundColor: 'white',
-      trackBorderWidth: 1,
-      trackBorderColor: 'silver',
-      trackBorderRadius: 7
-  },
+
     plotOptions: {
       column: {
         borderWidth: 0,
@@ -271,7 +271,7 @@ export class WidgetsComponent implements OnInit {
     },
     xAxis: {
       title: {
-        text: 'месяц',
+        text: ' ',
       },
       gridLineWidth: 0.2,
       categories: [

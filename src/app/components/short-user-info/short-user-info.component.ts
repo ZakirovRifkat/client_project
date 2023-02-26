@@ -8,7 +8,7 @@ import { MetricService } from 'src/app/services/metric.service';
   templateUrl: './short-user-info.component.html',
   styleUrls: ['./short-user-info.component.css'],
 })
-export class ShortUserInfoComponent implements OnInit, OnChanges {
+export class ShortUserInfoComponent implements OnChanges {
   @Input() user!: IUser;
   metrics!: IMetric[];
   sendMetric!: IMetric;
@@ -23,8 +23,6 @@ export class ShortUserInfoComponent implements OnInit, OnChanges {
     this.getMetrics();
     this.activeToday = true;
 
-  }
-  ngOnInit(): void {
   }
 
   getMetrics() {
