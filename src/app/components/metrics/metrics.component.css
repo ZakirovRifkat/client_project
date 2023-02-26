@@ -1,4 +1,4 @@
-.container {
+.metrics {
   background-color: #22272b;
   width: 305px;
   height: 175px;
@@ -10,7 +10,39 @@
   justify-content: space-between;
   position: relative;
 }
-.add-container {
+
+.metrics__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metrics__title {
+  color: white;
+  max-width: 126px;
+}
+
+.metrics__update-time {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.metrics__notification-btn {
+  background-color: #0078d2;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-weight: 400;
+  width: 98px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.add-metrics__container {
   background-color: rgba(22, 26, 29, 1);
   width: 305px;
   height: 175px;
@@ -25,4 +57,31 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.add-metrics__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.add-metrics__title img {
+  height: 24px;
+  width: 24px;
+  margin: 15px 0 10px 0;
+}
+
+.add-metrics__btn {
+  border: none;
+  border-radius: 99px;
+  background-color: rgba(250, 250, 250, 0.16);
+  color: white;
+  width: 90px;
+  height: 24px;
+  cursor: pointer;
 }
