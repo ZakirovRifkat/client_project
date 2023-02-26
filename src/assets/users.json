@@ -1,0 +1,53 @@
+[
+  {
+    "id": 0,
+    "name": "Влад",
+    "surname": "Петрович",
+    "jobTitle": "Технолог блока КВР",
+    "userImg": "",
+    "password": "0000",
+    "tasks": {
+      "done": 2,
+      "all": 5
+    },
+    "notification": {
+      "readed": 3,
+      "all": 5
+    },
+    "efficient": 0.78
+  },
+  {
+    "id": 1,
+    "name": "Катя",
+    "surname": "Семенова",
+    "jobTitle": "Технолог буровой установки",
+    "userImg": "",
+    "password": "1111",
+    "tasks": {
+      "done": 3,
+      "all": 9
+    },
+    "notification": {
+      "readed": 8,
+      "all": 10
+    },
+    "efficient": 0.35
+  },
+  {
+    "id": 2,
+    "name": "Егор",
+    "surname": "Уралов",
+    "jobTitle": "Старший инженер",
+    "userImg": "",
+    "password": "2222",
+    "tasks": {
+      "done": 1,
+      "all": 3
+    },
+    "notification": {
+      "readed": 6,
+      "all": 7
+    },
+    "efficient": 0.76
+  }
+]

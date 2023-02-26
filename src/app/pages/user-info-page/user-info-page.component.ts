@@ -1,5 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-info-page',
@@ -11,30 +13,40 @@ export class UserInfoPageComponent implements OnInit, DoCheck {
   password!: string;
   enteredPassword!: string;
   isFalsePassword!: boolean;
-
-  constructor(private activateRoute: ActivatedRoute) {
+  users!: IUser[];
+  user!: IUser;
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private userService: UserService
+  ) {
     activateRoute.params.subscribe((params) => (this.id = params['id']));
-    activateRoute.queryParams.subscribe((queryParam: any) => {
-      this.password = queryParam['password'];
-    });
   }
 
   ngOnInit(): void {
+    this.getUserById(this.id);
+    console.log(this.user);
     this.isFalsePassword = false;
   }
 
   ngDoCheck(): void {
-    if (this.enteredPassword != this.password) {
+    if (this.id != this.user.id) {
       this.isFalsePassword = false;
+      this.getUserById(this.id);
     }
   }
 
   checkPassword(enteredPassword: string) {
     this.enteredPassword = enteredPassword;
-    if (enteredPassword === this.password) {
+    if (enteredPassword === this.user.password) {
       this.isFalsePassword = true;
     } else {
       console.log('Неверный пароль');
     }
+  }
+  getUserById(id: number) {
+    this.userService.getUsers().subscribe((stream) => {
+      this.users = stream;
+      this.user = this.users[id];
+    });
   }
 }

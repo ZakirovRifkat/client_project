@@ -1,7 +1,8 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/models/user';
-import * as data from '../../../assets/data.json';
+import { UserService } from 'src/app/services/user.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,38 +10,13 @@ import * as data from '../../../assets/data.json';
   styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent implements OnInit, DoCheck {
-  constructor(private router: Router) {}
-  users: IUser[] = [
-    {
-      id: 1,
-      name: 'vlad',
-      surname: 'Eladovsci',
-      jobTitle: 'eblan1',
-      userImg: '',
-      password: '0000',
-    },
-    {
-      id: 2,
-      name: 'kurva',
-      surname: 'ppladovsci',
-      jobTitle: 'eblan2',
-      userImg: '',
-      password: '1111',
-    },
-    {
-      id: 3,
-      name: 'pasha',
-      surname: 'technic',
-      jobTitle: 'eblan3',
-      userImg: '',
-      password: '2222',
-    },
-  ];
+  constructor(private router: Router, private userService: UserService) {}
+  users!: IUser[];
 
-  ngOnInit(): void {}
-  ngDoCheck(): void {}
-
-  getRandomColor(): number {
-    return Math.random() * 255;
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe((stream) => {
+      this.users = stream;
+    });
   }
+  ngDoCheck(): void {}
 }

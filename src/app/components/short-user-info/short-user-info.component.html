@@ -17,7 +17,7 @@
 
     <button
       class="shift-btn"
-      [ngClass]="{ 'shift-bnt_active': activeBtn }"
+      [ngClass]="{ 'shift-btn_active': activeBtn }"
       (click)="btnClick()"
     >
       Заступить на смену
@@ -37,9 +37,9 @@
   </div>
 
   <div class="metrics__container">
-    <app-metrics [type]="'task'"></app-metrics>
-    <app-metrics [type]="'notification'"></app-metrics>
-    <app-metrics [type]="'efficient'"></app-metrics>
+    <app-metrics [type]="'task'" [user]="user"></app-metrics>
+    <app-metrics [type]="'notification'" [user]="user"></app-metrics>
+    <app-metrics [type]="'efficient'" [user]="user"></app-metrics>
     <app-metrics></app-metrics>
   </div>
 </div>

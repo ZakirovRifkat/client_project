@@ -3,7 +3,6 @@
     class="side-bar__link"
     *ngFor="let user of users"
     [routerLink]="['/info', user.id]"
-    [queryParams]="{ password: user.password }"
     routerLinkActive="side-bar__link_active"
   >
     <div class="avatar-gradient"></div>

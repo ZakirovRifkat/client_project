@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/user';
 
 @Component({
@@ -6,21 +6,17 @@ import { IUser } from 'src/app/models/user';
   templateUrl: './short-user-info.component.html',
   styleUrls: ['./short-user-info.component.css'],
 })
-export class ShortUserInfoComponent {
-  // @Input() user!: IUser;
-  user: IUser = {
-    id: 1,
-    name: 'vlad',
-    surname: 'Eladovsci',
-    jobTitle: 'eblan1',
-    userImg: '',
-    password: '0000',
-  };
+export class ShortUserInfoComponent implements OnInit{
+  @Input() user!: IUser;
   activeToday: boolean = true;
   taskStatsActive: boolean = true;
   notificationStatsActive: boolean = true;
   efficiencyStatsActive: boolean = true;
   activeBtn = false;
+
+  ngOnInit():void{
+  }
+
   btnClick(): void {
     this.activeBtn = !this.activeBtn;
   }

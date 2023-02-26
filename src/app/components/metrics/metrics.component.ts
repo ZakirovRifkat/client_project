@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { IUser } from 'src/app/models/user';
 
 const NBSP: string = '\u00A0';
 
@@ -8,16 +9,15 @@ const NBSP: string = '\u00A0';
   templateUrl: './metrics.component.html',
   styleUrls: ['./metrics.component.css'],
 })
-export class MetricsComponent {
+export class MetricsComponent implements OnChanges, OnInit {
   @Input() type!: string;
-
+  @Input() user!: IUser;
   title!: string;
   updateTime!: Date;
   chartColor: string = '#800000';
-  a: number = 2;
-  b: number = 4;
   Highcharts = Highcharts;
   update = false;
+
   chartOptions = {
     chart: {
       type: 'line',
@@ -51,7 +51,7 @@ export class MetricsComponent {
       verticalAlign: 'middle' as const,
       floating: true,
       y: 16,
-      text: `${this.a}${NBSP}/${NBSP}${this.b}`,
+      text: ``,
       style: {
         color: 'white',
         fontSize: '14px',
@@ -66,7 +66,7 @@ export class MetricsComponent {
       {
         type: 'pie' as const,
         name: 'Line 1',
-        data: [2, 2],
+        data: [0, 0],
       },
     ],
     tooltip: {
@@ -74,31 +74,42 @@ export class MetricsComponent {
     },
   };
 
-  get value(): string {
-    return '';
+  ngOnInit(): void {
+    this.setMetrics(this.user);
   }
-  set value(a: string) {}
-
-  ngOnInit() {
-    this.setMetrics();
+  ngOnChanges() {
+    this.setMetrics(this.user);
+    this.update = true;
   }
 
-  setMetrics(): void {
+  setMetrics(user: IUser): void {
     if (this.type === 'task') {
       this.title = `Количество заданий`;
       this.updateTime = new Date(1642546324516587);
       this.chartOptions.plotOptions.pie.colors[0] = '#24C38E';
-      this.chartOptions.series[0].data = [2, 2];
+      this.chartOptions.series[0].data = [
+        user.tasks.done,
+        user.tasks.all - user.tasks.done,
+      ];
+      this.chartOptions.title.text = `${user.tasks.done}${NBSP}/${NBSP}${user.tasks.all}`;
     } else if (this.type === 'notification') {
       this.title = 'Уведомления';
-      this.updateTime = new Date(1682546324516587);
       this.chartOptions.plotOptions.pie.colors[0] = '#F2C94C';
-      this.chartOptions.series[0].data = [12, 16];
+      this.updateTime = new Date(1682546324516587);
+      this.chartOptions.series[0].data = [
+        user.notification.readed,
+        user.notification.all - user.notification.readed,
+      ];
+      this.chartOptions.title.text = `${user.notification.readed}${NBSP}/${NBSP}${user.notification.all}`;
     } else if (this.type === 'efficient') {
       this.title = 'Показатель эффективноcти';
       this.updateTime = new Date(1662546324516587);
       this.chartOptions.plotOptions.pie.colors[0] = '#800000';
-      this.chartOptions.series[0].data = [5, 3];
+      this.chartOptions.series[0].data = [
+        user.efficient * 100,
+        (1 - user.efficient) * 100,
+      ];
+      this.chartOptions.title.text = `${user.efficient * 100}%`;
     } else {
       this.type = 'add';
     }
