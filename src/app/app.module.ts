@@ -16,6 +16,8 @@ import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.com
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { MetricsComponent } from './components/metrics/metrics.component';
 import { WidgetsComponent } from './components/widgets/widgets.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { WidgetsComponent } from './components/widgets/widgets.component';
     FormsModule,
     RouterModule,
     HighchartsChartModule,
+    MatSlideToggleModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,13 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-
+interface Food {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
   styleUrls: ['./widgets.component.css'],
 })
+
 export class WidgetsComponent implements OnInit {
   @Input() type!: string;
+  selectedValue!: string;
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
   title!: string;
   activeDay: boolean = true;
   activeMonth: boolean = false;
@@ -165,7 +175,7 @@ export class WidgetsComponent implements OnInit {
           lineHeight: '12px',
           textAlign: 'center',
           fontWeight: '400',
-          fontFamily:'Inter, sans-serif',
+          fontFamily: 'Inter, sans-serif',
         },
       },
       gridLineWidth: 0.2,
@@ -215,7 +225,26 @@ export class WidgetsComponent implements OnInit {
       spacingRight: 0,
       spacingLeft: 0,
       backgroundColor: 'transparent',
+      scrollablePlotArea: {
+        minWidth: 700,
+        scrollPositionX: 0,
+        
+      },
     },
+    scrollbar: {
+      barBackgroundColor: 'gray',
+      barBorderRadius: 7,
+      barBorderWidth: 0,
+      buttonBackgroundColor: 'gray',
+      buttonBorderWidth: 0,
+      buttonArrowColor: 'yellow',
+      buttonBorderRadius: 7,
+      rifleColor: 'yellow',
+      trackBackgroundColor: 'white',
+      trackBorderWidth: 1,
+      trackBorderColor: 'silver',
+      trackBorderRadius: 7
+  },
     plotOptions: {
       column: {
         borderWidth: 0,
@@ -242,7 +271,7 @@ export class WidgetsComponent implements OnInit {
     },
     xAxis: {
       title: {
-        text: null,
+        text: 'месяц',
       },
       gridLineWidth: 0.2,
       categories: [

@@ -1,152 +1,75 @@
-<div class="container">
-  <div
-    style="
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 20px 20px 15px 20px;
-      height: 124px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    "
-  >
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-      "
-    >
+<div class="widgets">
+  <div class="widgets__container">
+    <div class="widgets__header">
       <div>
-        <div style="color: white; line-height: 150%">{{ title }}</div>
-        <div
-          style="
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 150%;
-          "
-          *ngIf="type != 'incident'"
-        >
+        <div class="widgets__header_title">{{ title }}</div>
+        <div class="widgets__header_subtitle" *ngIf="type != 'incident'">
           Общее
         </div>
       </div>
-      <button
-        style="
-          border: none;
-          color: rgba(255, 255, 255, 0.75);
-          background-color: rgba(250, 250, 250, 0.16);
-          border-radius: 4px;
-          height: 32px;
-          width: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-        "
-      >
+      <button class="widgets__header_btn">
         <img src="../../../assets/IconSixDots.svg" alt="" />
       </button>
     </div>
-    <div style="display: flex; justify-content: space-between">
-      <div
-        style="
-          border-radius: 100px;
-          border: 1px solid rgba(246, 251, 253, 0.28);
-          width: 198px;
-          height: 24px;
-          display: flex;
-          justify-content: space-evenly;
-          position: relative;
-        "
-        *ngIf="type === 'incident'"
-      >
-        <button class="dateBtn" (click)="day()">День</button>
-        <button class="dateBtn" (click)="week()">Неделя</button>
-        <button class="dateBtn" (click)="month()">Месяц</button>
+    <div class="widgets__btn">
+      <div class="triple-date-selection" *ngIf="type === 'incident'">
+        <button class="triple-date-selection__btn" (click)="day()">День</button>
+        <button class="triple-date-selection__btn" (click)="week()">
+          Неделя
+        </button>
+        <button class="triple-date-selection__btn" (click)="month()">
+          Месяц
+        </button>
         <div
-          class="cont"
-          [ngClass]="{ activeWeek: !activeDay, activeMonth: activeMonth }"
+          class="triple-date-selection__btn_active-day"
+          [ngClass]="{
+            'triple-date-selection__btn_active-week': !activeDay,
+            'triple-date-selection__btn_active-month': activeMonth
+          }"
         ></div>
       </div>
       <div *ngIf="type === 'KPE'">datarange</div>
-      <div
-        style="
-          border-radius: 100px;
-          border: 1px solid rgba(246, 251, 253, 0.28);
-          width: 198px;
-          height: 24px;
-          display: flex;
-          justify-content: space-evenly;
-          position: relative;
-        "
-        *ngIf="type === 'event'"
-      >
-        <button class="dateBtn" (click)="dayEvent()">День</button>
-        <button class="dateBtn" (click)="weekEvent()">Неделя</button>
-        <div class="cont" [ngClass]="{ activeEvent: !eventDayActive }"></div>
+      <div class="double-date-selection" *ngIf="type === 'event'">
+        <button class="double-date-selection__btn" (click)="dayEvent()">
+          День
+        </button>
+        <button class="double-date-selection__btn" (click)="weekEvent()">
+          Неделя
+        </button>
+        <div
+          class="double-date-selection__btn_active-day"
+          [ngClass]="{
+            'double-date-selection__btn_active-week': !eventDayActive
+          }"
+        ></div>
       </div>
-      <select *ngIf="type === 'laboratory'">
-        <option>Пункт 1</option>
-        <option>Пункт 2</option>
-      </select>
-      <div class="moreBtn">Подробнее</div>
+      
+      <div class="widgets__more-btn">Подробнее</div>
     </div>
   </div>
 
-  <div
-    style="padding: 30px 20px; display: flex; justify-content: space-between"
-    *ngIf="type != 'event'"
-  >
-    <highcharts-chart 
-      [Highcharts]="Highcharts" 
-      [options]="chartOptionsPie" 
-      [(update)]="update" 
-      *ngIf="type === 'incident'"/>
-    <div
-      *ngIf="type === 'incident'"
-      style="
-        display: flex;
-        flex-direction: column;
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 12px;
-        font-family: 'Roboto', sans-serif;
-        gap: 12px;
-      "
-    >
+  <div class="widgets__chart-container" *ngIf="type != 'event'">
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsPie" [(update)]="update" *ngIf="type === 'incident'"/>
+    <div *ngIf="type === 'incident'" class="widgets__incindets-labels">
       <div>
-        <div class="circle circle_green"></div>
+        <div class="widgets__incindets-labels-circle circle_green"></div>
         Закрытые
       </div>
       <div>
-        <div class="circle circle_orange"></div>
+        <div class="widgets__incindets-labels-circle circle_orange"></div>
         Активные
       </div>
       <div>
-        <div class="circle circle_dark"></div>
+        <div class="widgets__incindets-labels-circle circle_dark"></div>
         Новые
       </div>
     </div>
     <div *ngIf="type === 'KPE'">
-      <highcharts-chart 
-        [Highcharts]="Highcharts" 
-        [options]="chartOptionsLine" 
-        [(update)]="update" 
-        *ngIf="type === 'KPE'"/>
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsLine" [(update)]="update" *ngIf="type === 'KPE'"/>
     </div>
-    <div
-      style="overflow: auto; box-sizing: border-box"
-      *ngIf="type === 'laboratory'"
-    >
-      <highcharts-chart 
-        [Highcharts]="Highcharts" 
-        [options]="chartOptionsBar" 
-        [(update)]="update" 
-        *ngIf="type === 'laboratory'"
-      />
+
+    <div class="widgets__laboratory-container" *ngIf="type === 'laboratory'">
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsBar" [(update)]="update" *ngIf="type === 'laboratory'"/>
       <div
         style="
           text-align: center;
@@ -163,96 +86,20 @@
     </div>
   </div>
   <div *ngIf="type === 'event'">
-    <div class="event">
-      <div class="title">
-        <div style="color: white">Произошла корректировка</div>
-        <div
-          style="
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            line-height: 21px;
-            font-weight: 400;
-          "
-        >
-          Блок компрессоров
-        </div>
+    <div class="widgets-event">
+      <div class="widgets-event__container">
+        <div class="widgets-event__title">Произошла корректировка</div>
+        <div class="widgets-event__subtitle">Блок компрессоров</div>
       </div>
-      <div
-        style="
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 14px;
-          line-height: 21px;
-          font-weight: 400;
-        "
-      >
-        26.05.2022
-      </div>
-    </div>
-    <div class="event">
-      <div class="title">
-        <div style="color: white">Произошла корректировка</div>
-        <div
-          style="
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            line-height: 21px;
-            font-weight: 400;
-          "
-        >
-          Блок компрессоров
-        </div>
-      </div>
-      <div
-        style="
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 14px;
-          line-height: 21px;
-          font-weight: 400;
-        "
-      >
-        26.05.2022
-      </div>
+      <div class="widgets-event__subtitle">26.05.2022</div>
     </div>
   </div>
 
-  <div class="add-container" *ngIf="type === 'add'">
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      "
-    >
-      <img
-        style="height: 24px; width: 24px; margin: 15px 0 10px 0"
-        src="../../../assets/IconAddWidget.svg"
-      />
-      <div
-        style="
-          text-align: center;
-          color: white;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 24px;
-        "
-      >
-        Добавить новый виджет
-      </div>
+  <div class="add-widgets__container" *ngIf="type === 'add'">
+    <div class="add-widgets__title">
+      <img src="../../../assets/IconAddWidget.svg" />
+      <div>Добавить новый виджет</div>
     </div>
-    <button
-      style="
-        border: none;
-        border-radius: 99px;
-        background-color: rgba(250, 250, 250, 0.16);
-        color: white;
-        width: 90px;
-        height: 24px;
-        cursor: pointer;
-        margin-top: 40px;
-      "
-    >
-      Добавить
-    </button>
+    <button class="add-widgets__btn">Добавить</button>
   </div>
 </div>
