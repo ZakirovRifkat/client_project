@@ -1,13 +1,10 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { IEvent } from 'src/app/models/event';
 import { IIncident } from 'src/app/models/incident';
 import { IKpe } from 'src/app/models/kpe';
-import { IUser } from 'src/app/models/user';
+import { ILab } from 'src/app/models/lab';
 import { WidgetService } from 'src/app/services/widget.service';
-interface Food {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-widgets',
@@ -18,6 +15,9 @@ export class WidgetsComponent implements OnInit, OnChanges {
   @Input() type!: string;
   @Input() incident!: IIncident[];
   @Input() kpe!: IKpe[];
+  @Input() lab!: ILab[];
+  @Input() dayEvents!: IEvent[];
+  @Input() weekEvents!: IEvent[];
   title!: string;
   isActiveDay: boolean = true;
   isActiveMonth: boolean = false;
@@ -29,6 +29,9 @@ export class WidgetsComponent implements OnInit, OnChanges {
   dataIncident!: number[];
   min!: number;
   max!: number;
+  filteredEvents!: IEvent[];
+  customMin!: any;
+  customMax!: any;
   constructor(private widgetsService: WidgetService) {}
 
   chartOptionsPie = {
@@ -243,7 +246,7 @@ export class WidgetsComponent implements OnInit, OnChanges {
       {
         type: 'column' as const,
         name: '',
-        data: [6, 3, 3, 6, 3, 3, 6, 3, 3, 6, 3, 3],
+        data: [6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         showInLegend: false,
       },
     ],
@@ -272,9 +275,21 @@ export class WidgetsComponent implements OnInit, OnChanges {
   }
   dayEvent(): void {
     this.isActiveEventDay = true;
+    this.setEvent('day');
   }
   weekEvent(): void {
     this.isActiveEventDay = false;
+    this.setEvent('week');
+  }
+  expenceData(): void {
+    this.isActiveEventDay = true;
+    this.setLab(0);
+    this.updateBar = true;
+  }
+  incomeData(): void {
+    this.isActiveEventDay = false;
+    this.setLab(1);
+    this.updateBar = true;
   }
 
   setIncident(id: number) {
@@ -288,7 +303,6 @@ export class WidgetsComponent implements OnInit, OnChanges {
       this.incident[id].active +
       this.incident[id].new
     }`;
-    console.log(5);
   }
 
   setKPE(): void {
@@ -309,6 +323,24 @@ export class WidgetsComponent implements OnInit, OnChanges {
       ];
     }
   }
+  setLab(flag: number) {
+    if (flag == 0) {
+      for (let i = 0; i < 12; i++) {
+        this.chartOptionsBar.series[0].data[i] = this.lab[i].expanceValue;
+      }
+    } else {
+      for (let i = 0; i < 12; i++) {
+        this.chartOptionsBar.series[0].data[i] = this.lab[i].incomeValue;
+      }
+    }
+  }
+  setEvent(timeStart: string) {
+    if (timeStart === 'day') {
+      this.filteredEvents = this.dayEvents;
+    } else {
+      this.filteredEvents = this.weekEvents;
+    }
+  }
 
   setWidgets(): void {
     if (this.type === 'incident') {
@@ -316,23 +348,38 @@ export class WidgetsComponent implements OnInit, OnChanges {
       this.setIncident(0);
       this.updatePie = true;
     } else if (this.type === 'KPE') {
-      this.title = 'Показатель КПЭ';
       this.setKPE();
       this.updateLine = true;
+      this.title = 'Показатель КПЭ';
     } else if (this.type === 'event') {
       this.title = 'Лента Событий';
+      this.setEvent('day');
+      this.isActiveEventDay = true;
     } else if (this.type === 'laboratory') {
       this.title = 'Данные лаб.анализов';
+      this.setLab(0);
+      this.updateBar = true;
     } else {
       this.type = 'add';
     }
   }
-
-  ngOnInit(): void {
-    this.setWidgets();
+  setCustomBorder() {
+    let a = new Date(this.customMin).getMonth() + 1;
+    let b = new Date(this.customMax).getMonth() + 1;
+    if (b && a) {
+      this.chartOptionsLine.xAxis.min = a;
+      this.chartOptionsLine.xAxis.max = b;
+      this.chartOptionsLine.xAxis.tickPositions = Array.from({
+        length: b - a + 1,
+      }).map((_, i) => a + i);
+      this.updateLine = true;
+    }
   }
+
+  ngOnInit(): void {}
 
   ngOnChanges() {
     this.setWidgets();
+    console.log(this.customMin, this.customMax);
   }
 }

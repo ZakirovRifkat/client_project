@@ -1,14 +1,9 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { IEvent } from 'src/app/models/event';
 import { IIncident } from 'src/app/models/incident';
 import { IKpe } from 'src/app/models/kpe';
+import { ILab } from 'src/app/models/lab';
 import { IUser } from 'src/app/models/user';
-import { WidgetService } from 'src/app/services/widget.service';
 
 @Component({
   selector: 'app-main-user-info',
@@ -17,8 +12,11 @@ import { WidgetService } from 'src/app/services/widget.service';
 })
 export class MainUserInfoComponent implements OnInit, OnChanges {
   @Input() user!: IUser;
-  @Input() incident!:IIncident[];
-  @Input() kpe!:IKpe[]
+  @Input() incident!: IIncident[];
+  @Input() kpe!: IKpe[];
+  @Input() lab!: ILab[];
+  @Input() dayEvents!: IEvent[];
+  @Input() weekEvents!: IEvent[];
   ngOnInit(): void {}
   ngOnChanges(): void {}
 }

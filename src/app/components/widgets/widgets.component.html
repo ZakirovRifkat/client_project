@@ -28,8 +28,9 @@
           }"
         ></div>
       </div>
-       <div *ngIf="type === 'KPE'">datarange
-  
+       <div *ngIf="type === 'KPE'">
+        <input type="date" class="KPE__date" [(ngModel)]="customMin" (change)="setCustomBorder()">
+        <input type="date" class="KPE__date" [(ngModel)]="customMax"(change)="setCustomBorder()">
       </div>
       <div class="double-date-selection" *ngIf="type === 'event'">
         <button class="double-date-selection__btn" (click)="dayEvent()">
@@ -45,7 +46,21 @@
           }"
         ></div>
       </div>
-      
+      <div *ngIf="type==='laboratory'"> 
+        <div class="double-date-selection">
+        <button class="double-date-selection__btn" (click)="expenceData()">
+          Расход
+        </button>
+        <button class="double-date-selection__btn" (click)="incomeData()">
+          Доход
+        </button>
+        <div
+          class="double-date-selection__btn_active-day"
+          [ngClass]="{
+            'double-date-selection__btn_active-week': !isActiveEventDay
+          }"
+        ></div>
+      </div></div>
       <div class="widgets__more-btn">Подробнее</div>
     </div>
   </div>
@@ -87,14 +102,15 @@
       </div>
     </div>
   </div>
-  <div *ngIf="type === 'event'">
-    <div class="widgets-event">
+  <div class="event-list" *ngIf="type === 'event'">
+    <div class="widgets-event" *ngFor="let event of filteredEvents">
       <div class="widgets-event__container">
-        <div class="widgets-event__title">Произошла корректировка</div>
-        <div class="widgets-event__subtitle">Блок компрессоров</div>
+        <div class="widgets-event__title">{{event.title}}</div>
+        <div class="widgets-event__subtitle">{{event.subtitle}}</div>
       </div>
-      <div class="widgets-event__subtitle">26.05.2022</div>
+      <div class="widgets-event__subtitle">{{event.data| date:'dd.MM.yyyy'}}</div>
     </div>
+    
   </div>
 
   <div class="add-widgets__container" *ngIf="type === 'add'">

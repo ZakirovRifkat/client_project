@@ -1,4 +1,3 @@
-
 body {
   padding: 0;
   margin: 0;
@@ -6,20 +5,27 @@ body {
   font-weight: 600;
 }
 
-/* width */
 .highcharts-scrolling::-webkit-scrollbar {
   height: 8px;
-  
 }
 
-/* Track */
 .highcharts-scrolling::-webkit-scrollbar-track {
   background: rgba(246, 251, 253, 0.06);
   border-radius: 10px;
 }
 
-/* Handle */
 .highcharts-scrolling::-webkit-scrollbar-thumb {
-  background:  rgba(246, 251, 253, 0.24);
+  background: rgba(246, 251, 253, 0.24);
   border-radius: 4px;
+}
+.event-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.event-list::-webkit-scrollbar-track {
+  background: rgba(246, 251, 253, 0.06);
+}
+
+.event-list::-webkit-scrollbar-thumb {
+  background: rgba(246, 251, 253, 0.24);
 }

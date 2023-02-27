@@ -1,7 +1,9 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from 'src/app/models/event';
 import { IIncident } from 'src/app/models/incident';
 import { IKpe } from 'src/app/models/kpe';
+import { ILab } from 'src/app/models/lab';
 import { IUser } from 'src/app/models/user';
 import { IncidentService } from 'src/app/services/incident.service';
 import { UserService } from 'src/app/services/user.service';
@@ -21,6 +23,9 @@ export class UserInfoPageComponent implements OnInit, DoCheck {
   user!: IUser;
   incidents!: IIncident[];
   kpe!: IKpe[];
+  lab!: ILab[];
+  dayEvents!: IEvent[];
+  weekEvents!: IEvent[];
   constructor(
     private activateRoute: ActivatedRoute,
     private userService: UserService,
@@ -33,6 +38,10 @@ export class UserInfoPageComponent implements OnInit, DoCheck {
     this.getUserById(this.id);
     this.getIncidents();
     this.getKPE();
+    this.getLab();
+    this.getDayEvent();
+    this.getWeekEvent();
+    
     this.isFalsePassword = false;
   }
 
@@ -42,6 +51,9 @@ export class UserInfoPageComponent implements OnInit, DoCheck {
       this.getUserById(this.id);
       this.getIncidents();
       this.getKPE();
+      this.getLab();
+      this.getDayEvent();
+      this.getWeekEvent();
     }
   }
 
@@ -69,6 +81,22 @@ export class UserInfoPageComponent implements OnInit, DoCheck {
   getKPE() {
     this.widgetService.getKPEByUser(this.id).subscribe((stream) => {
       this.kpe = stream;
+    });
+  }
+  getLab() {
+    this.widgetService.getLabByUser(this.id).subscribe((stream) => {
+      this.lab = stream;
+    });
+  }
+  getDayEvent() {
+    this.widgetService.getDayEventByUser(this.id).subscribe((stream) => {
+      this.dayEvents = stream;
+    });
+  }
+
+  getWeekEvent() {
+    this.widgetService.getWeekEventByUser(this.id).subscribe((stream) => {
+      this.weekEvents = stream;
     });
   }
 }
