@@ -1,0 +1,5 @@
+[
+  { "closed": 2, "active": 4, "new": 2 },
+  { "closed": 10, "active": 5, "new": 7 },
+  { "closed": 30, "active": 10, "new": 16 }
+]

@@ -13,18 +13,18 @@
     </div>
     <div class="widgets__btn">
       <div class="triple-date-selection" *ngIf="type === 'incident'">
-        <button class="triple-date-selection__btn" (click)="day()">День</button>
-        <button class="triple-date-selection__btn" (click)="week()">
+        <button class="triple-date-selection__btn" (click)="dayIncidents()">День</button>
+        <button class="triple-date-selection__btn" (click)="weekIncidents()">
           Неделя
         </button>
-        <button class="triple-date-selection__btn" (click)="month()">
+        <button class="triple-date-selection__btn" (click)="monthIncidents()">
           Месяц
         </button>
         <div
           class="triple-date-selection__btn_active-day"
           [ngClass]="{
-            'triple-date-selection__btn_active-week': !activeDay,
-            'triple-date-selection__btn_active-month': activeMonth
+            'triple-date-selection__btn_active-week': !isActiveDay,
+            'triple-date-selection__btn_active-month': isActiveMonth
           }"
         ></div>
       </div>
@@ -41,7 +41,7 @@
         <div
           class="double-date-selection__btn_active-day"
           [ngClass]="{
-            'double-date-selection__btn_active-week': !eventDayActive
+            'double-date-selection__btn_active-week': !isActiveEventDay
           }"
         ></div>
       </div>
@@ -51,7 +51,7 @@
   </div>
 
   <div class="widgets__chart-container" *ngIf="type != 'event'">
-    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsPie" [(update)]="update" *ngIf="type === 'incident'"/>
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsPie" [(update)]="updatePie" *ngIf="type === 'incident'"/>
     <div *ngIf="type === 'incident'" class="widgets__incindets-labels">
       <div>
         <div class="widgets__incindets-labels-circle circle_green"></div>
@@ -67,11 +67,11 @@
       </div>
     </div>
     <div *ngIf="type === 'KPE'">
-      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsLine" [(update)]="update" *ngIf="type === 'KPE'"/>
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsLine" [(update)]="updateLine" *ngIf="type === 'KPE'"/>
     </div>
 
     <div class="widgets__laboratory-container" *ngIf="type === 'laboratory'">
-      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsBar" [(update)]="update" *ngIf="type === 'laboratory'"/>
+      <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptionsBar" [(update)]="updateBar" *ngIf="type === 'laboratory'"/>
       <div
         style="
           text-align: center;

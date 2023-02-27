@@ -8,7 +8,7 @@ import * as XLSX from 'xlsx';
   templateUrl: './duty-table.component.html',
   styleUrls: ['./duty-table.component.css'],
 })
-export class DutyTableComponent implements OnChanges{
+export class DutyTableComponent implements OnChanges {
   @Input() userId!: number;
   @Input() userJob!: string;
   data!: IDuty[];
@@ -23,8 +23,6 @@ export class DutyTableComponent implements OnChanges{
       .getTableDataByUser(this.userId)
       .subscribe((stream) => {
         this.data = stream;
-        console.log(this.data);
-        
       });
   }
 

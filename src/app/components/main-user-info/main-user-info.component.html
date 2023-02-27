@@ -17,10 +17,10 @@
     </div>
   </div>
   <div class="widgets-container">
-    <app-widgets [type]="'incident'"></app-widgets>
-    <app-widgets [type]="'KPE'"></app-widgets>
-    <app-widgets [type]="'event'"></app-widgets>
-    <app-widgets [type]="'laboratory'"></app-widgets>
-    <app-widgets></app-widgets>
+    <app-widgets [type]="'incident'" [incident]="incident"></app-widgets>
+    <app-widgets [type]="'KPE'" [incident]="incident"></app-widgets>
+    <app-widgets [type]="'event'" [incident]="incident"></app-widgets>
+    <app-widgets [type]="'laboratory'" [incident]="incident"></app-widgets>
+    <app-widgets [type]="'add'" [incident]="incident"> </app-widgets>
   </div>
 </div>

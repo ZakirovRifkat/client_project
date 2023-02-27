@@ -1,0 +1,17 @@
+[
+  {
+    "closed": 5,
+    "active": 3,
+    "new": 2
+  },
+  {
+    "closed": 10,
+    "active": 15,
+    "new": 6
+  },
+  {
+    "closed": 18,
+    "active": 28,
+    "new": 16
+  }
+]
