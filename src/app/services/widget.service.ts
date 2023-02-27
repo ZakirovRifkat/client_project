@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IIncident } from '../models/incident';
+import { IKpe } from '../models/kpe';
 
 @Injectable({
   providedIn: 'root',
@@ -14,14 +15,10 @@ export class WidgetService {
       `./assets/data/user` + userId + `/incidents.json`
     );
   }
-  // getEventByUser(userId: number): Observable<IIncident[]> {
-  //   return this.http.get<IIncident[]>(
-  //     './assets/data/user' + userId + '/events.json'
-  //   );
-  // }
-  // getDataLaboratoryByUser(userId: number): Observable<IIncident[]> {
-  //   return this.http.get<IIncident[]>(
-  //     './assets/data/user' + userId + '/laboratory.json'
-  //   );
-  // }
+  getKPEByUser(userId: number): Observable<IKpe[]> {
+    return this.http.get<IKpe[]>(
+      `./assets/data/user` + userId + `/kpe.json`
+    );
+  }
+
 }

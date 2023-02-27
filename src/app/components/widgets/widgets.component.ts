@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { IIncident } from 'src/app/models/incident';
+import { IKpe } from 'src/app/models/kpe';
 import { IUser } from 'src/app/models/user';
 import { WidgetService } from 'src/app/services/widget.service';
 interface Food {
@@ -8,8 +9,6 @@ interface Food {
   viewValue: string;
 }
 
-const min = 2;
-const max = 6;
 @Component({
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
@@ -18,16 +17,18 @@ const max = 6;
 export class WidgetsComponent implements OnInit, OnChanges {
   @Input() type!: string;
   @Input() incident!: IIncident[];
-
+  @Input() kpe!: IKpe[];
   title!: string;
   isActiveDay: boolean = true;
   isActiveMonth: boolean = false;
   isActiveEventDay: boolean = true;
   Highcharts = Highcharts;
-  updatePie:boolean= false;
-  updateBar:boolean = false;
-  updateLine:boolean = false;
+  updatePie: boolean = false;
+  updateBar: boolean = false;
+  updateLine: boolean = false;
   dataIncident!: number[];
+  min!: number;
+  max!: number;
   constructor(private widgetsService: WidgetService) {}
 
   chartOptionsPie = {
@@ -149,13 +150,11 @@ export class WidgetsComponent implements OnInit, OnChanges {
         },
       },
       gridLineWidth: 0.2,
-      min,
-      max,
+      min: 0,
+      max: 5,
       startOnTick: true,
       endOnTick: true,
-      tickPositions: Array.from({ length: max - min + 1 }).map(
-        (_, i) => min + i
-      ),
+      tickPositions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     },
 
     credits: {
@@ -289,13 +288,37 @@ export class WidgetsComponent implements OnInit, OnChanges {
       this.incident[id].active +
       this.incident[id].new
     }`;
+    console.log(5);
+  }
+
+  setKPE(): void {
+    this.min = new Date(this.kpe[0].date).getMonth() + 1;
+    this.max = new Date(this.kpe[this.kpe.length - 1].date).getMonth() + 2;
+    this.chartOptionsLine.xAxis.min = this.min;
+    this.chartOptionsLine.xAxis.max = this.max;
+    this.chartOptionsLine.xAxis.tickPositions = Array.from({
+      length: this.max - this.min + 1,
+    }).map((_, i) => this.min + i);
+
+    for (let i = 0; i < 11; i++) {
+      this.chartOptionsLine.series[0].data[i] = [
+        new Date(this.kpe[i].date).getMonth() +
+          1 +
+          new Date(this.kpe[i].date).getDate() / 31,
+        this.kpe[i].value,
+      ];
+    }
   }
 
   setWidgets(): void {
     if (this.type === 'incident') {
       this.title = `Количество инцидентов`;
+      this.setIncident(0);
+      this.updatePie = true;
     } else if (this.type === 'KPE') {
       this.title = 'Показатель КПЭ';
+      this.setKPE();
+      this.updateLine = true;
     } else if (this.type === 'event') {
       this.title = 'Лента Событий';
     } else if (this.type === 'laboratory') {
@@ -305,11 +328,11 @@ export class WidgetsComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setWidgets();
+  }
 
   ngOnChanges() {
     this.setWidgets();
-    this.setIncident(0);
-    this.updatePie = true;
   }
 }
