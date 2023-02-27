@@ -13,6 +13,7 @@ const NBSP: string = '\u00A0';
 export class MetricsComponent implements OnChanges, OnInit {
   @Input() type!: string;
   @Input() metric!: IMetric;
+  
   title!: string;
   updateTime!: Date;
   chartColor: string = '#800000';

@@ -1,11 +1,17 @@
 .side-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
   width: 60px;
   background-color: #22272b;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+.side-bar__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .side-bar__user-name {
@@ -46,4 +52,14 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+.side-bar__footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.side-bar__footer img {
+  margin: 10px 0;
 }

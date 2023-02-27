@@ -239,10 +239,22 @@
 .KPE__date {
   background-color: transparent;
   outline: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
-  border: none;
-  border-bottom: 1px solid rgba(246, 251, 253, 0.28);
-  margin-left: 10px;
+  border: 1px solid rgba(246, 251, 253, 0.28);
 }
-
+.KPE__date_left {
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+}
+.KPE__date_right {
+  border-radius: 0 4px 4px 0;
+}
+::-webkit-calendar-picker-indicator {
+  background-image: url("../../../assets/IconCalendar.svg");
+  margin-top: 1px;
+  margin-right: 3px;
+}
+::-webkit-datetime-edit-fields-wrapper {
+  padding-left: 16px;
+}

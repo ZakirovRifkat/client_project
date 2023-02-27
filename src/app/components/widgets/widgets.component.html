@@ -29,8 +29,8 @@
         ></div>
       </div>
        <div *ngIf="type === 'KPE'">
-        <input type="date" class="KPE__date" [(ngModel)]="customMin" (change)="setCustomBorder()">
-        <input type="date" class="KPE__date" [(ngModel)]="customMax"(change)="setCustomBorder()">
+        <input type="date" class="KPE__date KPE__date_left" [(ngModel)]="customMin" (change)="setCustomBorder()">
+        <input type="date" class="KPE__date KPE__date_right" [(ngModel)]="customMax"(change)="setCustomBorder()">
       </div>
       <div class="double-date-selection" *ngIf="type === 'event'">
         <button class="double-date-selection__btn" (click)="dayEvent()">
