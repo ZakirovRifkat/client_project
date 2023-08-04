@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { IMetric } from 'src/app/models/metric';
 import { IUser } from 'src/app/models/user';
@@ -13,7 +13,7 @@ const NBSP: string = '\u00A0';
 export class MetricsComponent implements OnChanges, OnInit {
   @Input() type!: string;
   @Input() metric!: IMetric;
-  
+
   title!: string;
   updateTime!: Date;
   chartColor: string = '#800000';

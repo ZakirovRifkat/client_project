@@ -33,13 +33,14 @@
         [ngClass]="{ 'date__btn_active-yesterday': !activeToday }"
       ></div>
     </div>
-    <input type="date" class="calendar">
+    <input type="date" class="calendar" />
   </div>
 
   <div class="metrics__container">
-    <app-metrics [type]="'task'" [metric]="sendMetric"></app-metrics>
-    <app-metrics [type]="'notification'" [metric]="sendMetric"></app-metrics>
-    <app-metrics [type]="'efficient'" [metric]="sendMetric"></app-metrics>
+    <app-metrics [type]="'task'" [metric]="sendMetric" ></app-metrics>
+    <app-metrics [type]="'notification'" [metric]="sendMetric" ></app-metrics>
+    <app-metrics [type]="'efficient'" [metric]="sendMetric" ></app-metrics>
     <app-metrics [type]="'add'"></app-metrics>
   </div>
 </div>
+

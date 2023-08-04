@@ -29,3 +29,135 @@ body {
 .event-list::-webkit-scrollbar-thumb {
   background: rgba(246, 251, 253, 0.24);
 }
+.triple-date-selection__btn_active-day {
+  background-color: #0078d2;
+  position: absolute;
+  left: 0;
+  width: 33%;
+  height: 100%;
+  border-radius: 100px;
+  transition: 0.4s;
+}
+.triple-date-selection__btn_active-week {
+  left: 33.3%;
+  transition: 0.4s;
+}
+.triple-date-selection__btn_active-month {
+  left: 67.1%;
+  transition: 0.4s;
+}
+.double-date-selection {
+  border-radius: 100px;
+  border: 1px solid rgba(246, 251, 253, 0.28);
+  width: 131px;
+  height: 24px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+.double-date-selection__btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 12px;
+  width: 50%;
+  border-radius: 100px;
+  z-index: 1;
+}
+.double-date-selection__btn_active-day {
+  background-color: #0078d2;
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 100px;
+  transition: 0.4s;
+}
+.double-date-selection__btn_active-week {
+  left: 50%;
+  transition: 0.4s;
+}
+.widgets__chart-container {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.widgets__incindets-labels {
+  display: flex;
+  flex-direction: column;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  font-family: "Roboto", sans-serif;
+  gap: 12px;
+}
+.widgets__incindets-labels-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+.circle_green {
+  background-color: #24c38e;
+}
+.circle_orange {
+  background-color: #f38b01;
+}
+.circle_dark {
+  background-color: #161a1d;
+}
+.widgets__laboratory-container {
+  width: 355px;
+  box-sizing: border-box;
+}
+.widgets-event {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 73px;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.widgets-event__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.widgets-event__title {
+  color: white;
+}
+.widgets-event__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+.event-list {
+  height: 291px;
+  overflow: auto;
+}
+.KPE__date {
+  background-color: transparent;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  border: 1px solid rgba(246, 251, 253, 0.28);
+}
+.KPE__date_left {
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+}
+.KPE__date_right {
+  border-radius: 0 4px 4px 0;
+}
+::-webkit-calendar-picker-indicator {
+  background-image: url("./assets/IconCalendar.svg");
+  margin-top: 1px;
+  margin-right: 3px;
+}
+::-webkit-datetime-edit-fields-wrapper {
+  padding-left: 16px;
+}

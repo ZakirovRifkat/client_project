@@ -17,6 +17,7 @@ export class ShortUserInfoComponent implements OnChanges {
   notificationStatsActive: boolean = true;
   efficiencyStatsActive: boolean = true;
   activeBtn = false;
+  
   constructor(private metricsService: MetricService) {}
 
   ngOnChanges(): void {
@@ -43,4 +44,5 @@ export class ShortUserInfoComponent implements OnChanges {
     this.activeToday = false;
     this.sendMetric = this.metrics[1];
   }
+
 }
